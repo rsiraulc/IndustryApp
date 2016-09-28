@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Menu"
+             xmlns:local="IndustryApp.Pages"
+             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" BackgroundColor="#E2E2E2">
+  <MasterDetailPage.Master>
+    <ContentPage Title="IndustryApp Menu">
+      <StackLayout Orientation="Vertical" BackgroundColor="#E2E2E2">
+        <Button Text="Agenda" BorderWidth="0"  BorderColor="#E2E2E2" />
+        <Button Text="Contactos" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2"/>
+        <Button Text="Sponsors" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnSponsor_OnClicked"/>
+      </StackLayout>
+    </ContentPage>
+  </MasterDetailPage.Master>
+  
+  <MasterDetailPage.Detail>
+    <pages:Home />
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

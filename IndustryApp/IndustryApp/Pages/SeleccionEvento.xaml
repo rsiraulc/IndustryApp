@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.SeleccionEvento"
+             Title="IndustryApp" BackgroundColor="#E2E2E2">
+  <StackLayout HorizontalOptions="CenterAndExpand">
+    <Button Text="BajaMak" BackgroundColor="#31B3B3" Clicked="Button_OnClicked" HorizontalOptions="Fill">
+    </Button>
+    <Button Text="Mexicali Supply" BackgroundColor="#31B3B3"/>
+    <Button Text="Hermosillo Transforma" BackgroundColor="#31B3B3" />
+  </StackLayout>
+</ContentPage>
