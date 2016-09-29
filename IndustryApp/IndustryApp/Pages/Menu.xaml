@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Menu"
              xmlns:local="IndustryApp.Pages"
-             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" BackgroundColor="#E2E2E2">
+             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="BajaMak 2016" MasterBehavior="Popover" Icon="menu_icon.png">
   <MasterDetailPage.Master>
-    <ContentPage Title="IndustryApp Menu">
+    <ContentPage Title="IndustryApp">
       <StackLayout Orientation="Vertical" BackgroundColor="#E2E2E2">
-        <Button Text="Agenda" BorderWidth="0"  BorderColor="#E2E2E2" />
+        <Button Text="Agenda" BorderWidth="0" BackgroundColor="Transparent" BorderColor="Transparent"/>
         <Button Text="Contactos" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2"/>
         <Button Text="Sponsors" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnSponsor_OnClicked"/>
       </StackLayout>
     </ContentPage>
   </MasterDetailPage.Master>
-  
+
   <MasterDetailPage.Detail>
-    <pages:Home />
+    <pages:Home Title="BajaMak 2016"/>
   </MasterDetailPage.Detail>
 </MasterDetailPage>

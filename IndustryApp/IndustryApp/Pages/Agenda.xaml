@@ -2,5 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Agenda" Title="Agenda">
-  <Label Text="AGENDA PERROS" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout>
+    <ListView x:Name="lstAgenda" RowHeight="80">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10" Padding="20, 10, 5, 10">
+              <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-4" />
+              <Label x:Name="lblConferencista" FontSize="16" Text="{Binding Conferencista}" TextColor="Gray" Margin="-4" FontAttributes="Bold"/>
+              <StackLayout Orientation="Horizontal">
+                <Label x:Name="lblFecha" FontSize="15" Text="{Binding Fecha} " TextColor="Gray" Margin="-4" />
+                <Label FontSize="15" Text=" - " TextColor="Gray" Margin="-4" />
+                <Label x:Name="lblLugar" FontSize="15" Text=" {Binding Lugar}" TextColor="Gray" Margin="-4" />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
 </ContentPage>

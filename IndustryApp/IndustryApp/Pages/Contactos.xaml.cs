@@ -23,9 +23,24 @@ namespace IndustryApp.Pages
             NavigationPage.SetHasBackButton(this, false);
             lstContactos.ItemsSource = new List<Contacto>
             {
-                new Contacto { Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
-                new Contacto { Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
-                new Contacto { Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
+                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
+                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
+                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
             };
         }
     }
