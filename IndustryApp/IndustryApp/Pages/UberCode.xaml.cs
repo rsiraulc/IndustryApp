@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Android.Content;
 using Xamarin.Forms;
 
 namespace IndustryApp.Pages
 {
-    public partial class EventoDetalle : ContentPage
+    public partial class UberCode : ContentPage
     {
-        public EventoDetalle(string evento)
+        public UberCode()
         {
             InitializeComponent();
-            this.Title = evento;
+        }
+
+        private void btnCopiar_OnClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

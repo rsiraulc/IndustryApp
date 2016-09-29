@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Contactos" Title="Contactos" >
   <StackLayout>
-    <ListView x:Name="lstContactos" RowHeight="80">
+    <ListView x:Name="lstContactos" RowHeight="80" ItemSelected="ListView_OnItemSelected">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

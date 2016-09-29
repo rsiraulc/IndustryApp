@@ -18,12 +18,6 @@ namespace IndustryApp.Pages
         public Menu()
         {
             InitializeComponent();
-
-            var btn = new ToolbarItem
-            {
-                Icon = "menu_icon.png", Priority = 0
-            };
-            ToolbarItems.Add(btn);
         }
 
         private async void btnSponsor_OnClicked(object sender, EventArgs e)
@@ -31,10 +25,20 @@ namespace IndustryApp.Pages
             await Navigation.PushAsync(new Sponsors());
         }
 
+        private async void btnUber_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UberCode());
+        }
+
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var x = (MenuItem) e.SelectedItem;
             DisplayAlert("IndustryApp", x.Nombre, "OK", "Cancel");
+        }
+
+        private async void btnAcerca_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Acerca());
         }
     }
 }

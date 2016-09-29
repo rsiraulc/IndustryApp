@@ -6,6 +6,6 @@
   <StackLayout VerticalOptions="CenterAndExpand">
     <Label Text="Bienvenido" FontSize="50" FontAttributes="Bold" HorizontalOptions="Center"/>
     <Image Source="C:\Users\Desarrollo-2\Documents\IndustryApp\App\IndustryApp\IndustryApp\IndustryApp\Images\settings-icon.png" ></Image>
-    <Button Text="Entrar" Clicked="Button_OnClicked"/>
+    <Button x:Name="btnScan" Text="Entrar" Clicked="Button_OnClicked" HorizontalOptions="Center" IsVisible="False"/>
   </StackLayout>
 </ContentPage>

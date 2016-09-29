@@ -8,12 +8,11 @@ using Xamarin.Forms;
 
 namespace IndustryApp.Pages
 {
-    public partial class EventoDetalle : ContentPage
+    public partial class Acerca : ContentPage
     {
-        public EventoDetalle(string evento)
+        public Acerca()
         {
             InitializeComponent();
-            this.Title = evento;
         }
     }
 }

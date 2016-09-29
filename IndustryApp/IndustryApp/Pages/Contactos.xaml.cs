@@ -22,6 +22,7 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
+            
             lstContactos.ItemsSource = new List<Contacto>
             {
                 new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
@@ -43,6 +44,12 @@ namespace IndustryApp.Pages
                 new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
                 new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
             };
+        }
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var c = (Contacto)e.SelectedItem;
+            DisplayAlert("IndustryApp", $"{c.Nombre} - {c.Correo}", "OK").Start();
         }
     }
 }
