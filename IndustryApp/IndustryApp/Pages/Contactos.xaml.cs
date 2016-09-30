@@ -47,9 +47,9 @@ namespace IndustryApp.Pages
         }
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
+        {           
             var c = (Contacto)e.SelectedItem;
-            DisplayAlert("IndustryApp", $"{c.Nombre} - {c.Correo}", "OK").Start();
+            DisplayAlert("IndustryApp", c.Nombre, "OK");
         }
     }
 }

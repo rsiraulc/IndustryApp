@@ -13,6 +13,7 @@ namespace IndustryApp.Pages
         public Home()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
     }
 }

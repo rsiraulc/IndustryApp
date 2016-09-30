@@ -87,8 +87,6 @@
   <ItemGroup>
     <Content Include="Images\bajamak_logo_small.png" />
     <Content Include="Images\icono_contacto_sm.png" />
-    <Content Include="menu_icon.png" />
-    <Content Include="Images\settings_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">

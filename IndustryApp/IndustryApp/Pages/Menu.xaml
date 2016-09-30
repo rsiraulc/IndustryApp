@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Menu"
              xmlns:local="IndustryApp.Pages"
-             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="BajaMak 22016" MasterBehavior="Popover" Icon="menu_icon.png">
+             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="BajaMak 2016" MasterBehavior="Popover" Icon="menu_icon.png" BackgroundColor="#E2E2E2">
   <MasterDetailPage.Master>
     <ContentPage Title="IndustryApp">
       <StackLayout Orientation="Vertical" BackgroundColor="#E2E2E2">

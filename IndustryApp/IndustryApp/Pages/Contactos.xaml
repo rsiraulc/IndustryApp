@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IndustryApp.Pages.Contactos" Title="Contactos" >
+             x:Class="IndustryApp.Pages.Contactos" Title="Contactos" BackgroundColor="#E2E2E2" >
   <StackLayout>
     <ListView x:Name="lstContactos" RowHeight="80" ItemSelected="ListView_OnItemSelected">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10" Padding="20, 10, 5, 10">
+              <Image Source="icono_contacto_sm.png"></Image>
               <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-4"></Label>
               <Label x:Name="lblEmpresa" FontSize="15" Text="{Binding Empresa}" TextColor="Gray" Margin="-4"></Label>
               <Label x:Name="lblCorreo" FontSize="13" Text="{Binding Correo}" TextColor="Gray" Margin="-4"></Label>
