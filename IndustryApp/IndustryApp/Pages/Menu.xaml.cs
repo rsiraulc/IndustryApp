@@ -19,7 +19,11 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
 
-            
+            var btn = new ToolbarItem
+            {
+                Icon = "menu_icon.png", Priority = 0
+            };
+            ToolbarItems.Add(btn);
         }
 
         private async void btnSponsor_OnClicked(object sender, EventArgs e)

@@ -8,5 +8,7 @@
     </Button>
     <Button Text="Mexicali Supply" BackgroundColor="#31B3B3"/>
     <Button Text="Hermosillo Transforma" BackgroundColor="#31B3B3" />
+    
+    <Button Text="Scan" HorizontalOptions="StartAndExpand" Clicked="btnScan_OnClicked"></Button>
   </StackLayout>
 </ContentPage>

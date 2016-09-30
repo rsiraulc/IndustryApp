@@ -25,6 +25,7 @@ namespace IndustryApp.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            //ZXing.Net.Mobile.Forms.Android.Platform.Init();
             return base.FinishedLaunching(app, options);
         }
     }
