@@ -7,11 +7,46 @@
   <MasterDetailPage.Master>
     <ContentPage Title="IndustryApp">
       <StackLayout Orientation="Vertical" BackgroundColor="#E2E2E2">
-        <Button Text="Agenda" BorderWidth="0" BackgroundColor="Transparent" BorderColor="Transparent"/>
-        <Button Text="Contactos" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2"/>
-        <Button Text="Uber Code" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnUber_OnClicked"/>
-        <Button Text="Sponsors" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnSponsor_OnClicked"/>
-        <Button Text="Acerca" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnAcerca_OnClicked"/>
+        <Button Text="Agenda" BorderWidth="0" BackgroundColor="Transparent" BorderColor="Transparent">
+          <Button.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32">
+              <OnPlatform.Android>1</OnPlatform.Android>
+              <OnPlatform.iOS>0</OnPlatform.iOS>
+            </OnPlatform>
+          </Button.BorderRadius>
+        </Button>
+        <Button Text="Contactos" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2">
+          <Button.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32">
+              <OnPlatform.Android>1</OnPlatform.Android>
+              <OnPlatform.iOS>0</OnPlatform.iOS>
+            </OnPlatform>
+          </Button.BorderRadius>
+        </Button>
+        <Button Text="Uber Code" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnUber_OnClicked">
+          <Button.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32">
+              <OnPlatform.Android>1</OnPlatform.Android>
+              <OnPlatform.iOS>0</OnPlatform.iOS>
+            </OnPlatform>
+          </Button.BorderRadius>
+        </Button>
+        <Button Text="Sponsors" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnSponsor_OnClicked">
+          <Button.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32">
+              <OnPlatform.Android>1</OnPlatform.Android>
+              <OnPlatform.iOS>0</OnPlatform.iOS>
+            </OnPlatform>
+          </Button.BorderRadius>
+        </Button>
+        <Button Text="Acerca" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="btnAcerca_OnClicked">
+          <Button.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32">
+              <OnPlatform.Android>1</OnPlatform.Android>
+              <OnPlatform.iOS>0</OnPlatform.iOS>
+            </OnPlatform>
+          </Button.BorderRadius>
+        </Button>
       </StackLayout>
     </ContentPage>
   </MasterDetailPage.Master>

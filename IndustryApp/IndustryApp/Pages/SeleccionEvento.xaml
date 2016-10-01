@@ -6,6 +6,6 @@
   <StackLayout>
     <Button Text=" " BackgroundColor="Transparent" Clicked="btnBajaMak_OnClicked" HorizontalOptions="Fill" Image="logo_bajamak.png" />
       <Button Text=" " BackgroundColor="Transparent" Clicked="Button_OnClicked" Image="logo_mexicali_supply.png" BorderWidth="0"/>
-      <Button Text=" " BackgroundColor="#31B3B3"  Clicked="btnHermosillo_OnClicked" Image="logo_hermosillo.png"/>
+      <Button Text=" " BackgroundColor="Transparent"  Clicked="btnHermosillo_OnClicked" Image="logo_hermosillo.png"/>
   </StackLayout>
 </ContentPage>
