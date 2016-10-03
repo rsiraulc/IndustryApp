@@ -15,9 +15,10 @@ namespace IndustryApp.Pages
             InitializeComponent();
         }
 
-        private void btnCopiar_OnClicked(object sender, EventArgs e)
+        private void btnCanjear_OnClicked(object sender, EventArgs e)
         {
-            
+            var url = "https://m.uber.com/ul/?action=applyPromo&promo=bajamak";
+            Device.OpenUri(new Uri(url));
         }
     }
 }

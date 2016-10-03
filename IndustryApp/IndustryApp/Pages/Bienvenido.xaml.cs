@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Javax.Security.Auth;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
@@ -15,7 +15,7 @@ namespace IndustryApp.Pages
         public Bienvenido()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasNavigationBar(this, false);
             CheckUsuario();
         }
 
@@ -43,17 +43,17 @@ namespace IndustryApp.Pages
 
             var scanPage = new ZXingScannerPage(options)
             {
-                DefaultOverlayTopText = "Escanea el código",
+                DefaultOverlayTopText = string.Empty,
                 DefaultOverlayBottomText = string.Empty,
                 DefaultOverlayShowFlashButton = true
             };
+            scanPage.Title = "Escanea el código QR";
+            scanPage.AutoFocus();
             await Navigation.PushAsync(scanPage);
 
             scanPage.OnScanResult += (result) =>
             {
                 scanPage.IsScanning = false;
-
-
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();

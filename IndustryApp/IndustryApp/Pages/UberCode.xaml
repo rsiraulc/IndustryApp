@@ -6,6 +6,6 @@
     <Label Text="¡Con Industry App viajas gratis!" FontSize="30" FontAttributes="Bold" TextColor="#023F5E"/>
     <Label Text="Utiliza este código para tu siguiente viaje en UBER" FontSize="15" TextColor="#313A49"/>
     <Label x:Name="lblCode" Text="BAJAMAK" TextColor="#31B3B3" FontSize="25" HorizontalOptions="Center" Margin="20" />
-    <Button Text="Copiar" BackgroundColor="#31B3B3" Clicked="btnCopiar_OnClicked"/>
+    <Button Text="Canjear" Clicked="btnCanjear_OnClicked"/>
   </StackLayout>
 </ContentPage>

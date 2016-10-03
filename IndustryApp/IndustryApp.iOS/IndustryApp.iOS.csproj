@@ -124,6 +124,14 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="Toasts.Forms.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Toasts.Forms.Plugin.3.1.0\lib\Xamarin.iOS10\Toasts.Forms.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Toasts.Forms.Plugin.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Toasts.Forms.Plugin.3.1.0\lib\Xamarin.iOS10\Toasts.Forms.Plugin.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -141,16 +149,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.12\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="zxing.portable, Version=2.1.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.12\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Forms, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ZXingNetMobile, Version=2.1.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.12\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Forms.iOS, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.portable, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -180,6 +196,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\logo_hermosillo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_industryapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\export_contacto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

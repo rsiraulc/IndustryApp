@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Bienvenido"
-             Title="Industry App">
-  <StackLayout VerticalOptions="CenterAndExpand">
-    <Label Text="Bienvenido" FontSize="50" FontAttributes="Bold" HorizontalOptions="Center"/>
+             Title="Industry App" BackgroundColor="#E2E2E2" >
+  <StackLayout Margin="40">
+    <Label Text="Bienvenido" FontSize="50" TextColor="#313A49" HorizontalOptions="Center"/>
+    <Image Source="logo_industryapp.png" HorizontalOptions="Center"/>
     <Image Source="C:\Users\Desarrollo-2\Documents\IndustryApp\App\IndustryApp\IndustryApp\IndustryApp\Images\settings-icon.png" ></Image>
-    <Button x:Name="btnScan" Text="Entrar" Clicked="Button_OnClicked" HorizontalOptions="Center" IsVisible="False"/>
+    <Button x:Name="btnScan" Text="Registrate" Clicked="Button_OnClicked" HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="#31B3B3" TextColor="#E2E2E2" Margin="0,20,0,0"/>
   </StackLayout>
 </ContentPage>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Android.App;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
@@ -21,10 +21,27 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-            ToolbarItems.Add(new ToolbarItem("Nuevo","add_contacto.png", () =>
+
+            //var np = new NavigationPage(this);
+            //np.BarBackgroundColor = Color.FromHex("31B3B3");
+
+            ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", () =>
             {
                 ScanContacto();
             }));
+
+            ToolbarItems.Add(new ToolbarItem("Exportar", "export_contacto.png", () =>
+            {
+                ExportarContactos();
+              
+            }));
+        }
+
+        private async void ExportarContactos()
+        {
+            var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
+            if(msg)
+                await DisplayAlert("IndustryApp", "Contactos exportados", "Aceptar");
         }
 
         private async void btnSponsor_OnClicked(object sender, EventArgs e)
@@ -60,10 +77,12 @@ namespace IndustryApp.Pages
 
             var scanPage = new ZXingScannerPage(options)
             {
-                DefaultOverlayTopText = "Escanea el código",
+                DefaultOverlayTopText = string.Empty,
                 DefaultOverlayBottomText = string.Empty,
                 DefaultOverlayShowFlashButton = true
             };
+
+            scanPage.Title = "Escanea código QR";
             await Navigation.PushAsync(scanPage);
 
             scanPage.OnScanResult += (result) =>
