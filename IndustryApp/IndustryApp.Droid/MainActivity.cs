@@ -20,6 +20,8 @@ namespace IndustryApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
+            RequestedOrientation = ScreenOrientation.Portrait;
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);

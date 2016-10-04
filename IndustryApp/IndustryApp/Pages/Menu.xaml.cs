@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
+using Android.OS;
+using MyProject.vCard;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
@@ -88,15 +90,22 @@ namespace IndustryApp.Pages
             scanPage.OnScanResult += (result) =>
             {
                 scanPage.IsScanning = false;
-
-
+                
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    await DisplayAlert("Industry App", result.Text, "OK", "Cancel");
+                    var x = new vCardReader();
+                    x.ParseLines(result.Text);
+                    var contacto =
+                        $"Nombre: {x.GivenName}, Apellido: {x.Surname}, Correo: {x.Emails[0].address}, Empresa: {x.Org}, Tel: {x.Phones[0].number}";
+                    await DisplayAlert("Industry App", contacto, "OK", "Cancel");
+                    
 
                 });
+
+                scanPage.PauseAnalysis();
             };
         }
+
     }
 }
