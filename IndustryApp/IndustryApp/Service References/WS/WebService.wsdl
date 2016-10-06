@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AddNewUsuarioRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddNewUsuarioRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarUsuarioResult" type="tns:UsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaRegistro" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeUsuarioPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeUsuarioPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeUsuarioPorIdResult" type="tns:UsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeUsuarioPorCorreo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeUsuarioPorCorreoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeUsuarioPorCorreoResult" type="tns:UsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AddNewContactoRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddNewContactoRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaRegistro" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarContactoResult" type="tns:ContactoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Contacto" type="tns:Contactos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Contactos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaRegistro" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeContactosPorIdUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeContactosPorIdUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeContactosPorIdUsuarioResult" type="tns:ContactosResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactosResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Contactos" type="tns:ArrayOfContactos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contactos" nillable="true" type="tns:Contactos" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeContactoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeContactoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeContactoPorIdResult" type="tns:ContactoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeAllExpos">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraeAllExposResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeAllExposResult" type="tns:ExposResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExposResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Expos" type="tns:ArrayOfExpos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfExpos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Expos" nillable="true" type="tns:Expos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Expos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colonia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitud" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinal" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeExpoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idExpo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeExpoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeExpoPorIdResult" type="tns:ExpoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExpoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Expo" type="tns:Expos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="TraeEventosPorIdExpo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idExpo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeEventosPorIdExpoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeEventosPorIdExpoResult" type="tns:EventosResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EventosResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Eventos" type="tns:ArrayOfEventos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfEventos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Eventos" nillable="true" type="tns:Eventos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Eventos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdExpo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEvento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreConferencista" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeEventoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeEventoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeEventoPorIdResult" type="tns:EventoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EventoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Evento" type="tns:Eventos" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="TraeStandsPorIdExpo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idExpo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeStandsPorIdExpoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeStandsPorIdExpoResult" type="tns:StandsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StandsResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Stands" type="tns:ArrayOfStands" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfStands">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Stands" nillable="true" type="tns:Stands" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Stands">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroStand" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdExpo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeStandPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeStandPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeStandPorIdResult" type="tns:StandResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StandResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Stand" type="tns:Stands" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="TraeSponsorsPorIdExpo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idExpo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeSponsorsPorIdExpoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeSponsorsPorIdExpoResult" type="tns:SponsorsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SponsorsResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sponsors" type="tns:ArrayOfSponsors" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSponsors">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sponsors" nillable="true" type="tns:Sponsors" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Sponsors">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdExpo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLFacebook" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLTwitter" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeSponsorPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeSponsorPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeSponsorPorIdResult" type="tns:SponsorResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SponsorResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sponsor" type="tns:Sponsors" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeUsuarioPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeUsuarioPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeUsuarioPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeUsuarioPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeUsuarioPorCorreoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeUsuarioPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="TraeUsuarioPorCorreoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeUsuarioPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarContacto" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeContactosPorIdUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeContactosPorIdUsuario" />
+  </wsdl:message>
+  <wsdl:message name="TraeContactosPorIdUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeContactosPorIdUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeContactoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeContactoPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeContactoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeContactoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeAllExposSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeAllExpos" />
+  </wsdl:message>
+  <wsdl:message name="TraeAllExposSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeAllExposResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeExpoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeExpoPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeExpoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeExpoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeEventosPorIdExpoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeEventosPorIdExpo" />
+  </wsdl:message>
+  <wsdl:message name="TraeEventosPorIdExpoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeEventosPorIdExpoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeEventoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeEventoPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeEventoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeEventoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeStandsPorIdExpoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeStandsPorIdExpo" />
+  </wsdl:message>
+  <wsdl:message name="TraeStandsPorIdExpoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeStandsPorIdExpoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeStandPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeStandPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeStandPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeStandPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeSponsorsPorIdExpoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeSponsorsPorIdExpo" />
+  </wsdl:message>
+  <wsdl:message name="TraeSponsorsPorIdExpoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeSponsorsPorIdExpoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeSponsorPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeSponsorPorId" />
+  </wsdl:message>
+  <wsdl:message name="TraeSponsorPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeSponsorPorIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para el registro de un usuario nuevo</wsdl:documentation>
+      <wsdl:input message="tns:RegistrarUsuarioSoapIn" />
+      <wsdl:output message="tns:RegistrarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para consulta de usuario por id</wsdl:documentation>
+      <wsdl:input message="tns:TraeUsuarioPorIdSoapIn" />
+      <wsdl:output message="tns:TraeUsuarioPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorCorreo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para consulta de usuario por su correo electronico</wsdl:documentation>
+      <wsdl:input message="tns:TraeUsuarioPorCorreoSoapIn" />
+      <wsdl:output message="tns:TraeUsuarioPorCorreoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarContacto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para insertar un nuevo contacto</wsdl:documentation>
+      <wsdl:input message="tns:RegistrarContactoSoapIn" />
+      <wsdl:output message="tns:RegistrarContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactosPorIdUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que devuelve la lista de usuarios por Usuario</wsdl:documentation>
+      <wsdl:input message="tns:TraeContactosPorIdUsuarioSoapIn" />
+      <wsdl:output message="tns:TraeContactosPorIdUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactoPorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que devuelve los datos de un contacto por su id</wsdl:documentation>
+      <wsdl:input message="tns:TraeContactoPorIdSoapIn" />
+      <wsdl:output message="tns:TraeContactoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeAllExpos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que devuelve el listado de todas las expos registradas</wsdl:documentation>
+      <wsdl:input message="tns:TraeAllExposSoapIn" />
+      <wsdl:output message="tns:TraeAllExposSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeExpoPorId">
+      <wsdl:input message="tns:TraeExpoPorIdSoapIn" />
+      <wsdl:output message="tns:TraeExpoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventosPorIdExpo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que regresa el listado de los eventos por expo</wsdl:documentation>
+      <wsdl:input message="tns:TraeEventosPorIdExpoSoapIn" />
+      <wsdl:output message="tns:TraeEventosPorIdExpoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventoPorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el detalle del evento por su id</wsdl:documentation>
+      <wsdl:input message="tns:TraeEventoPorIdSoapIn" />
+      <wsdl:output message="tns:TraeEventoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandsPorIdExpo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el listado de stands por Expo</wsdl:documentation>
+      <wsdl:input message="tns:TraeStandsPorIdExpoSoapIn" />
+      <wsdl:output message="tns:TraeStandsPorIdExpoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandPorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el detalle de cada stand por su id</wsdl:documentation>
+      <wsdl:input message="tns:TraeStandPorIdSoapIn" />
+      <wsdl:output message="tns:TraeStandPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorsPorIdExpo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que trae el listado de sponsors por Expo</wsdl:documentation>
+      <wsdl:input message="tns:TraeSponsorsPorIdExpoSoapIn" />
+      <wsdl:output message="tns:TraeSponsorsPorIdExpoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorPorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para  ver el detallle de un sponsor por su id</wsdl:documentation>
+      <wsdl:input message="tns:TraeSponsorPorIdSoapIn" />
+      <wsdl:output message="tns:TraeSponsorPorIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <soap:operation soapAction="http://tempuri.org/RegistrarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeUsuarioPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorCorreo">
+      <soap:operation soapAction="http://tempuri.org/TraeUsuarioPorCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarContacto">
+      <soap:operation soapAction="http://tempuri.org/RegistrarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactosPorIdUsuario">
+      <soap:operation soapAction="http://tempuri.org/TraeContactosPorIdUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactoPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeContactoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeAllExpos">
+      <soap:operation soapAction="http://tempuri.org/TraeAllExpos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeExpoPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeExpoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventosPorIdExpo">
+      <soap:operation soapAction="http://tempuri.org/TraeEventosPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventoPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeEventoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandsPorIdExpo">
+      <soap:operation soapAction="http://tempuri.org/TraeStandsPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeStandPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorsPorIdExpo">
+      <soap:operation soapAction="http://tempuri.org/TraeSponsorsPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorPorId">
+      <soap:operation soapAction="http://tempuri.org/TraeSponsorPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeUsuarioPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeUsuarioPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/TraeUsuarioPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarContacto">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactosPorIdUsuario">
+      <soap12:operation soapAction="http://tempuri.org/TraeContactosPorIdUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeContactoPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeContactoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeAllExpos">
+      <soap12:operation soapAction="http://tempuri.org/TraeAllExpos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeExpoPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeExpoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventosPorIdExpo">
+      <soap12:operation soapAction="http://tempuri.org/TraeEventosPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeEventoPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeEventoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandsPorIdExpo">
+      <soap12:operation soapAction="http://tempuri.org/TraeStandsPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeStandPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeStandPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorsPorIdExpo">
+      <soap12:operation soapAction="http://tempuri.org/TraeSponsorsPorIdExpo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeSponsorPorId">
+      <soap12:operation soapAction="http://tempuri.org/TraeSponsorPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:57116/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:57116/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
