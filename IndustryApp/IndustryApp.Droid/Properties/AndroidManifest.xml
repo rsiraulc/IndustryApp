@@ -5,5 +5,10 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
-	<application android:label="IndustryApp.Droid"></application>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<application android:label="IndustryApp.Droid">
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDneOX3BvQeksRGJ8u74rzNZvE5DKPWYv8" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	</application>
 </manifest>
