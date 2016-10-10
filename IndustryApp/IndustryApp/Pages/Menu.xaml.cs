@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
-using Android.OS;
+using IndustryApp.Code.Services;
 using MyProject.vCard;
 using Xamarin.Forms;
 using ZXing.Mobile;
@@ -74,7 +70,7 @@ namespace IndustryApp.Pages
                 AutoRotate = false,
                 UseFrontCameraIfAvailable = false,
                 TryHarder = true,
-                PossibleFormats = new List<ZXing.BarcodeFormat> { ZXing.BarcodeFormat.QR_CODE, ZXing.BarcodeFormat.CODE_128, ZXing.BarcodeFormat.EAN_13 },
+                PossibleFormats = new List<ZXing.BarcodeFormat> { ZXing.BarcodeFormat.QR_CODE},
             };
 
             var scanPage = new ZXingScannerPage(options)
@@ -84,7 +80,7 @@ namespace IndustryApp.Pages
                 DefaultOverlayShowFlashButton = true
             };
 
-            scanPage.Title = "Escanea código QR";
+            scanPage.Title = "Escanea Código QR";
             await Navigation.PushAsync(scanPage);
 
             scanPage.OnScanResult += (result) =>
@@ -96,16 +92,41 @@ namespace IndustryApp.Pages
                     await Navigation.PopAsync();
                     var x = new vCardReader();
                     x.ParseLines(result.Text);
-                    var contacto =
-                        $"Nombre: {x.GivenName}, Apellido: {x.Surname}, Correo: {x.Emails[0].address}, Empresa: {x.Org}, Tel: {x.Phones[0].number}";
-                    await DisplayAlert("Industry App", contacto, "OK", "Cancel");
-                    
-
+                    AddContacto(x);
                 });
 
                 scanPage.PauseAnalysis();
             };
         }
 
+        private async void AddContacto(vCardReader _contacto)
+        {
+            var contactoService = new ContactoService();
+            var contacto = new Code.Models.Contactos
+            {
+                Correo = _contacto.Emails[0].address,
+                Empresa = _contacto.Org,
+                FechaRegistro = DateTime.Now,
+                Id = contactoService.GetListaCount() + 1,
+                Nombre = _contacto.GivenName + " " + _contacto.Surname,
+                IdUsuario = 1,
+                Telefono = _contacto.Phones[0].number
+            };
+
+            if (contactoService.AddContacto(contacto))
+            {
+                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Ok");
+                var x = new Contactos();
+            }
+            else
+                await DisplayAlert("IndustryApp", "Este contacto ya existe en tu lista", "Ok");
+
+
+        }
+
+        private async void btnComoLlegar_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Mapa());
+        }
     }
 }

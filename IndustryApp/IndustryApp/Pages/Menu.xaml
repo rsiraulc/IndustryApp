@@ -15,7 +15,7 @@
             </OnPlatform>
           </Button.BorderRadius>
         </Button>
-        <Button Text="Contactos" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2">
+        <Button Text="¿Cómo llegar?" BackgroundColor="#E2E2E2" BorderColor="#E2E2E2" Clicked="btnComoLlegar_OnClicked">
           <Button.BorderRadius>
             <OnPlatform x:TypeArguments="x:Int32">
               <OnPlatform.Android>1</OnPlatform.Android>

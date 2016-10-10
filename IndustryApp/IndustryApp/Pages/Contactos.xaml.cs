@@ -13,16 +13,11 @@ using IndustryApp.IndustryAppWS;
 using IndustryApp.weather;
 using Newtonsoft.Json;
 using Org.Apache.Http.Client.Params;
-
+using IndustryApp.Code.Models;
+using IndustryApp.Code.Services;
 
 namespace IndustryApp.Pages
 {
-    public class Contacto
-    {
-        public string Nombre { get; set; }
-        public string Empresa { get; set; }
-        public string Correo { get; set; }
-    }
 
     public partial class Contactos : ContentPage
     {
@@ -30,26 +25,57 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
+            lstContactos.IsPullToRefreshEnabled = true;
 
-            lstContactos.ItemsSource = new List<Contacto>
-            {
-                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
-                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
-                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
-                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"},
-                new Contacto {Nombre = "Roberto Arroyo", Correo = "roberto@sdpoint.com", Empresa = "SD Point"},
-                new Contacto {Nombre = "Lucero Pelaez", Correo = "lucerito@medtronic.com", Empresa = "Medtronic"},
-                new Contacto {Nombre = "Juan Castañeda", Correo = "juan@rsimexico.com", Empresa = "RSI México"}
-            };
+            CargarContactos();
         }
 
-        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public void CargarContactos()
         {
-            var c = (Contacto) e.SelectedItem;
-            //DisplayAlert("IndustryApp", c.Nombre, "OK");
+            ContactoService contactoService = new ContactoService();
+            lstContactos.ItemsSource = null;
+            lstContactos.ItemsSource = contactoService.GetListaContactos();
 
-            //EjemploWS();
-           // EjemploApi();
+                //    new List<Code.Models.Contactos>
+                //{
+                //    new Code.Models.Contactos()
+                //    {
+                //        Nombre = "Rodo",
+                //        Correo = "rodoc@rsimexico.com",
+                //        Empresa = "RSI Mexico",
+                //        FechaRegistro = DateTime.Now,
+                //        Id = 1,
+                //        IdUsuario = 2,
+                //        Telefono = "6643050958"
+                //    }
+                //};
+                
+            lstContactos.ItemTemplate = new DataTemplate(typeof(List<Code.Models.Contactos>));
+
+            //if (listaContactos.Count == 0)
+            //{
+            //    lblNoContacto.IsVisible = true;
+            //    lstContactos.IsVisible = false;
+            //}
+            //else
+            //{
+            //    lblNoContacto.IsVisible = false;
+            //    lstContactos.IsVisible = true;
+            //}
+        }
+
+        private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var c = (Code.Models.Contactos) e.SelectedItem;
+            OpcionesContacto(c);
+
+            //((ListView) sender).SelectedItem = null;
+        }
+
+        private async void OpcionesContacto(Code.Models.Contactos c)
+        {
+            var msg =  await DisplayAlert("IndustryApp", "¿Que acción deseas realizar?", "Llamar", "Enviar Correo");
+            Device.OpenUri(msg ? new Uri($"tel:{c.Telefono}") : new Uri($"mailto:{c.Correo}"));
         }
 
         private async void EjemploApi()

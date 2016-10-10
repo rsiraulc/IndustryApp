@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Contactos" Title="Contactos" BackgroundColor="#E2E2E2" >
-  <StackLayout>
+  <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+    <Label x:Name="lblNoContacto" Text="Por el momento no cuentas con contactos agregados" FontSize="20" TextColor="#023F5E" Margin="15" IsVisible="False"></Label>
     <ListView x:Name="lstContactos" RowHeight="80" ItemSelected="ListView_OnItemSelected">
       <ListView.ItemTemplate>
         <DataTemplate>

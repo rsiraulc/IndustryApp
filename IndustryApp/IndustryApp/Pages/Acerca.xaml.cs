@@ -8,11 +8,12 @@ using Xamarin.Forms;
 
 namespace IndustryApp.Pages
 {
-    public partial class Acerca : ContentPage
+    public partial class Acerca : TabbedPage
     {
         public Acerca()
         {
             InitializeComponent();
+            
         }
     }
 }

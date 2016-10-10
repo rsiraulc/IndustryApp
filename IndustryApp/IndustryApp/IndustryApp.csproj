@@ -44,9 +44,20 @@
     <Compile Include="Code\Models\Stands.cs" />
     <Compile Include="Code\Models\Usuario.cs" />
     <Compile Include="Code\Notificaciones.cs" />
+    <Compile Include="Code\Services\ContactoService.cs" />
+    <Compile Include="Code\Services\WSService.cs" />
     <Compile Include="Code\vCardReader.cs" />
     <Compile Include="Pages\Acerca.xaml.cs">
       <DependentUpon>Acerca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Acerca_BajaMak.xaml.cs">
+      <DependentUpon>Acerca_BajaMak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Acerca_Contactanos.xaml.cs">
+      <DependentUpon>Acerca_Contactanos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Acerca_RSI.xaml.cs">
+      <DependentUpon>Acerca_RSI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
@@ -65,6 +76,9 @@
     </Compile>
     <Compile Include="Pages\Layout.xaml.cs">
       <DependentUpon>Layout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Mapa.xaml.cs">
+      <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -329,6 +343,30 @@
     <WCFMetadataStorage Include="Service References\IndustryAppWS\" />
     <WCFMetadataStorage Include="Service References\WCFIndustryApp\" />
     <WCFMetadataStorage Include="Service References\weather\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Mapa.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Acerca_BajaMak.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Acerca_RSI.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Acerca_Contactanos.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
