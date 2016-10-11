@@ -6,6 +6,8 @@
     <Label Text="¿Quienes somos?" FontSize="30" FontAttributes="Bold" TextColor="#023F5E"/>
     <Label x:Name="lblDescripcion" FontSize="15" TextColor="#313A49"/>
     <Label x:Name="lblDescripcion2" FontSize="15" TextColor="#313A49"/>
-    <ListView x:Name="lvAplicaciones" SeparatorVisibility="None"></ListView>
+    <ListView x:Name="lvAplicaciones" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected">
+      <Label></Label>
+    </ListView>
   </StackLayout>
 </ContentPage>

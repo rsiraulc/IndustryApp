@@ -10,7 +10,8 @@ namespace IndustryApp.Pages
 {
     public class MenuItem
     {
-        public string Nombre { get; set; }
+        public int Id { get; set; }
+        public string Opcion { get; set; }
     }
 
     public partial class Menu : MasterDetailPage
@@ -19,9 +20,6 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-
-            //var np = new NavigationPage(this);
-            //np.BarBackgroundColor = Color.FromHex("31B3B3");
 
             ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", () =>
             {
@@ -33,6 +31,14 @@ namespace IndustryApp.Pages
                 ExportarContactos();
               
             }));
+
+            lvMenu.ItemsSource = new List<MenuItem>
+            {
+                new MenuItem {Id = 1, Opcion = "¿Como llegar?"},
+                new MenuItem {Id = 2, Opcion = "Uber Code"},
+                new MenuItem {Id = 3, Opcion = "Sponsors"},
+                new MenuItem {Id = 4, Opcion = "Acerca"}
+            };
         }
 
         private async void ExportarContactos()
@@ -40,27 +46,6 @@ namespace IndustryApp.Pages
             var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
             if(msg)
                 await DisplayAlert("IndustryApp", "Contactos exportados", "Aceptar");
-        }
-
-        private async void btnSponsor_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Sponsors());
-        }
-
-        private async void btnUber_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new UberCode());
-        }
-
-        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var x = (MenuItem) e.SelectedItem;
-            DisplayAlert("IndustryApp", x.Nombre, "OK", "Cancel");
-        }
-
-        private async void btnAcerca_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Acerca());
         }
 
         public async void ScanContacto()
@@ -124,9 +109,29 @@ namespace IndustryApp.Pages
 
         }
 
-        private async void btnComoLlegar_OnClicked(object sender, EventArgs e)
+        private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new Mapa());
+            if (e.SelectedItem != null)
+            {
+                var opcion = (MenuItem) e.SelectedItem;
+                switch (opcion.Id)
+                {
+                    case 1:
+                        await Navigation.PushAsync(new Mapa());
+                        break;
+                    case 2:
+                        await Navigation.PushAsync(new UberCode());
+                        break;
+                    case 3:
+                        await Navigation.PushAsync(new Sponsors());
+                        break;
+                    case 4:
+                        await Navigation.PushAsync(new Acerca());
+                        break;
+                }
+
+                lvMenu.SelectedItem = null;
+            }
         }
     }
 }

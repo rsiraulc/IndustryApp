@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Sponsors" BackgroundColor="#E2E2E2" Title="Sponsors BajaMak 2016">
-  <ListView x:Name="lstSponsors" RowHeight="80"  ItemSelected="ListView_OnItemSelected">
+  <ListView x:Name="lstSponsors" RowHeight="50"  ItemSelected="ListView_OnItemSelected">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
