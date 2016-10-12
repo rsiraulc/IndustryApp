@@ -5,7 +5,7 @@
   <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="10,0,0,10" Padding="20, 10, 20, 10">
     <Label Text="¡Con Industry App viajas gratis!" FontSize="30" FontAttributes="Bold" TextColor="#023F5E"/>
     <Label Text="Utiliza este código para tu siguiente viaje en UBER" FontSize="15" TextColor="#313A49"/>
-    <Label x:Name="lblCode" Text="BAJAMAK" TextColor="#31B3B3" FontSize="25" HorizontalOptions="Center" Margin="20" />
+    <Label x:Name="lblCode" Text="BAJAMAK16" TextColor="#31B3B3" FontSize="25" HorizontalOptions="Center" Margin="20" />
     <Button Text="Canjear" Clicked="btnCanjear_OnClicked"/>
   </StackLayout>
 </ContentPage>

@@ -40,10 +40,12 @@
     <Compile Include="Code\Models\Eventos.cs" />
     <Compile Include="Code\Models\Expos.cs" />
     <Compile Include="Code\Models\ExposUsuarios.cs" />
+    <Compile Include="Code\Models\MenuItem.cs" />
     <Compile Include="Code\Models\Sponsors.cs" />
     <Compile Include="Code\Models\Stands.cs" />
     <Compile Include="Code\Models\Usuario.cs" />
     <Compile Include="Code\Notificaciones.cs" />
+    <Compile Include="Code\ScanQR.cs" />
     <Compile Include="Code\Services\ContactoService.cs" />
     <Compile Include="Code\Services\WSService.cs" />
     <Compile Include="Code\vCardReader.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code\IAndroidMethods.cs" />
     <Compile Include="Pages\Layout.xaml.cs">
       <DependentUpon>Layout.xaml</DependentUpon>
     </Compile>

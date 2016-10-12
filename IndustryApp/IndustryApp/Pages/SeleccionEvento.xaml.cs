@@ -19,8 +19,16 @@ namespace IndustryApp.Pages
             NavigationPage.SetHasBackButton(this, false);
         }
 
-        private async void btnBajaMak_OnClicked(object sender, EventArgs e)
+        protected override bool OnBackButtonPressed()
         {
+            if(Device.OS == TargetPlatform.Android)
+             DependencyService.Get<IAndroidMethods>().CloseApp();
+
+            return base.OnBackButtonPressed();
+        }
+
+        private async void btnBajaMak_OnClicked(object sender, EventArgs e)
+        { 
             await Navigation.PushAsync(new Menu());
         }
 

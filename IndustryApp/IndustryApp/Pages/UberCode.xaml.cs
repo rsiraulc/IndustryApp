@@ -17,7 +17,7 @@ namespace IndustryApp.Pages
 
         private void btnCanjear_OnClicked(object sender, EventArgs e)
         {
-            var url = "https://m.uber.com/ul/?action=applyPromo&promo=bajamak";
+            var url = "https://m.uber.com/ul/?action=applyPromo&promo=bajamak16";
             Device.OpenUri(new Uri(url));
         }
     }

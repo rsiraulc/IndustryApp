@@ -32,27 +32,26 @@ namespace IndustryApp.Pages
 
         public void CargarContactos()
         {
-            ContactoService contactoService = new ContactoService();
+
+            var c = new ContactoService();
             lstContactos.ItemsSource = null;
-            lstContactos.ItemsSource = contactoService.GetListaContactos();
+            lstContactos.ItemsSource = c.GetOCContactos();
+            
+            //    new List<Code.Models.Contactos>
+            //{
+            //    new Code.Models.Contactos()
+            //    {
+            //        Nombre = "Rodo",
+            //        Correo = "rodoc@rsimexico.com",
+            //        Empresa = "RSI Mexico",
+            //        FechaRegistro = DateTime.Now,
+            //        Id = 1,
+            //        IdUsuario = 2,
+            //        Telefono = "6643050958"
+            //    }
+            //};
 
-                //    new List<Code.Models.Contactos>
-                //{
-                //    new Code.Models.Contactos()
-                //    {
-                //        Nombre = "Rodo",
-                //        Correo = "rodoc@rsimexico.com",
-                //        Empresa = "RSI Mexico",
-                //        FechaRegistro = DateTime.Now,
-                //        Id = 1,
-                //        IdUsuario = 2,
-                //        Telefono = "6643050958"
-                //    }
-                //};
-                
-            lstContactos.ItemTemplate = new DataTemplate(typeof(List<Code.Models.Contactos>));
-
-            //if (listaContactos.Count == 0)
+            //if (c.GetTotalOCContactos() == 0)
             //{
             //    lblNoContacto.IsVisible = true;
             //    lstContactos.IsVisible = false;
@@ -64,9 +63,9 @@ namespace IndustryApp.Pages
             //}
         }
 
-        private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var c = (Code.Models.Contactos) e.SelectedItem;
+            var c = (Code.Models.Contactos)e.SelectedItem;
             OpcionesContacto(c);
 
             //((ListView) sender).SelectedItem = null;

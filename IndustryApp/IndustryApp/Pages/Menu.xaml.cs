@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using IndustryApp.Code;
 using IndustryApp.Code.Services;
 using MyProject.vCard;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
-
+using IndustryApp.Code.Models;
 namespace IndustryApp.Pages
 {
-    public class MenuItem
-    {
-        public int Id { get; set; }
-        public string Opcion { get; set; }
-    }
-
     public partial class Menu : MasterDetailPage
     {
         public Menu()
@@ -23,6 +18,7 @@ namespace IndustryApp.Pages
 
             ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", () =>
             {
+                var scan = new ScanQR();
                 ScanContacto();
             }));
 
@@ -32,22 +28,14 @@ namespace IndustryApp.Pages
               
             }));
 
-            lvMenu.ItemsSource = new List<MenuItem>
+            lvMenu.ItemsSource = new List<Code.Models.MenuItem>
             {
-                new MenuItem {Id = 1, Opcion = "¿Como llegar?"},
-                new MenuItem {Id = 2, Opcion = "Uber Code"},
-                new MenuItem {Id = 3, Opcion = "Sponsors"},
-                new MenuItem {Id = 4, Opcion = "Acerca"}
+                new Code.Models.MenuItem {Id = 1, Opcion = "¿Como llegar?"},
+                new Code.Models.MenuItem {Id = 2, Opcion = "Uber Code"},
+                new Code.Models.MenuItem {Id = 3, Opcion = "Sponsors"},
+                new Code.Models.MenuItem {Id = 4, Opcion = "Acerca"}
             };
         }
-
-        private async void ExportarContactos()
-        {
-            var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
-            if(msg)
-                await DisplayAlert("IndustryApp", "Contactos exportados", "Aceptar");
-        }
-
         public async void ScanContacto()
         {
             var options = new MobileBarcodeScanningOptions
@@ -55,7 +43,7 @@ namespace IndustryApp.Pages
                 AutoRotate = false,
                 UseFrontCameraIfAvailable = false,
                 TryHarder = true,
-                PossibleFormats = new List<ZXing.BarcodeFormat> { ZXing.BarcodeFormat.QR_CODE},
+                PossibleFormats = new List<ZXing.BarcodeFormat> { ZXing.BarcodeFormat.QR_CODE },
             };
 
             var scanPage = new ZXingScannerPage(options)
@@ -71,13 +59,14 @@ namespace IndustryApp.Pages
             scanPage.OnScanResult += (result) =>
             {
                 scanPage.IsScanning = false;
-                
+
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
                     var x = new vCardReader();
                     x.ParseLines(result.Text);
                     AddContacto(x);
+
                 });
 
                 scanPage.PauseAnalysis();
@@ -98,22 +87,30 @@ namespace IndustryApp.Pages
                 Telefono = _contacto.Phones[0].number
             };
 
-            if (contactoService.AddContacto(contacto))
+            if (contactoService.AddObservableCollection(contacto))
             {
+                //var x = new Pages.Contactos();
+                //x.CargarContactos();
                 await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Ok");
-                var x = new Contactos();
+                Contactos x = new Contactos();
+                x.CargarContactos();
             }
             else
                 await DisplayAlert("IndustryApp", "Este contacto ya existe en tu lista", "Ok");
+        }
 
-
+        private async void ExportarContactos()
+        {
+            var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
+            if(msg)
+                await DisplayAlert("IndustryApp", "Contactos exportados", "Aceptar");
         }
 
         private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                var opcion = (MenuItem) e.SelectedItem;
+                var opcion = (Code.Models.MenuItem) e.SelectedItem;
                 switch (opcion.Id)
                 {
                     case 1:

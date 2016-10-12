@@ -19,7 +19,7 @@ namespace IndustryApp.Pages
 
         private void SetLocalizacion()
         {
-            var coordenadas = new Position(32.527301, -116.9659015);
+            var coordenadas = new Position(32.5288348, -116.9693253);
             mapa.MoveToRegion(MapSpan.FromCenterAndRadius(coordenadas, Distance.FromKilometers(1)));
             var pin = new Pin {Position = coordenadas, Label = "Bajamak 2016", IsDraggable = false};
             mapa.Pins.Insert(0, pin);
