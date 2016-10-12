@@ -33,6 +33,7 @@ namespace IndustryApp.Pages
 
         public void CargarContactos()
         {
+
             using (var datos = new DataAccess())
             {
                 lstContactos.ItemsSource = null;
@@ -81,6 +82,30 @@ namespace IndustryApp.Pages
                     }
                     break;
             }
+        }
+
+        public async void AddContacto(vCardReader _contacto)
+        {
+            var contacto = new Code.Models.Contactos
+            {
+                Correo = _contacto.Emails[0].address,
+                Empresa = _contacto.Org,
+                FechaRegistro = DateTime.Now,
+                Nombre = _contacto.FormattedName,
+                Apellido = _contacto.Surname,
+                Telefono = _contacto.Phones[0].number
+            };
+
+            var data = new DataAccess();
+            var respuesta = data.InsertContacto(contacto);
+
+
+            if (respuesta)
+                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Ok");
+            else
+                await DisplayAlert("IndustryApp", "Este contacto ya existe en tu lista", "Ok");
+
+            CargarContactos();
         }
     }
 }

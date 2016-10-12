@@ -65,39 +65,11 @@ namespace IndustryApp.Pages
                     var x = new vCardReader();
                     x.ParseLines(result.Text);
                     var cont = new Contactos();
-
-                    AddContacto(x);
-
+                    cont.AddContacto(x);
+                    await Navigation.PushAsync(new Menu());
                 });
-
                 scanPage.PauseAnalysis();
             };
-        }
-
-        public async void AddContacto(vCardReader _contacto)
-        {
-            var contactoService = new ContactoService();
-            var contacto = new Code.Models.Contactos
-            {
-                Correo = _contacto.Emails[0].address,
-                Empresa = _contacto.Org,
-                FechaRegistro = DateTime.Now,
-                Id = contactoService.GetListaCount() + 1,
-                Nombre = _contacto.FormattedName,
-                Apellido = _contacto.Surname,
-                Telefono = _contacto.Phones[0].number
-            };
-
-            var data = new DataAccess();
-            var respuesta = data.InsertContacto(contacto);
-
-
-            if (respuesta)
-                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Ok");
-            else
-                await DisplayAlert("IndustryApp", "Este contacto ya existe en tu lista", "Ok");
-
-            Contactos cont = new Contactos();
         }
 
         private async void ExportarContactos()
