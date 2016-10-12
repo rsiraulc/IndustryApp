@@ -24,9 +24,17 @@ namespace IndustryApp.Code.Database
         }
 
 
-        public void InsertContacto(Contactos contacto)
+        public bool InsertContacto(Contactos contacto)
         {
-            connection.Insert(contacto);
+            if (GetContactoByCorreo(contacto.Correo) == null)
+            {
+                connection.Insert(contacto);
+                return true;
+            }
+            else
+            {
+                return false;
+            }            
         }
 
         public void UpdateContacto(Contactos contacto)
@@ -48,10 +56,20 @@ namespace IndustryApp.Code.Database
         {
             return connection.Table<Contactos>().FirstOrDefault(c => c.Id == id);
         }
+
+        public Contactos GetContactoByCorreo(string correo)
+        {
+            return connection.Table<Contactos>().FirstOrDefault(c => c.Correo == correo);
+        }
+
+        public int GetTotalContactos()
+        {
+            return GetContactos().Count;
+        }
                 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            connection.Dispose();
         }
     }
 }

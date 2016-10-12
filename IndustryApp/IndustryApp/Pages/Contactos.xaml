@@ -4,15 +4,16 @@
              x:Class="IndustryApp.Pages.Contactos" Title="Contactos" BackgroundColor="#E2E2E2" >
   <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
     <Label x:Name="lblNoContacto" Text="Por el momento no cuentas con contactos agregados" FontSize="20" TextColor="#023F5E" Margin="15" IsVisible="False"></Label>
-    <ListView x:Name="lstContactos" RowHeight="80" ItemSelected="ListView_OnItemSelected">
+    <ListView x:Name="lstContactos" RowHeight="100" ItemSelected="ListView_OnItemSelected" ItemsSource="{Binding Path=Contactos}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10" Padding="20, 10, 5, 10">
               <Image Source="icono_contacto_sm.png"></Image>
-              <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-4"></Label>
+              <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-10, 0, 0, -4"></Label>
               <Label x:Name="lblEmpresa" FontSize="15" Text="{Binding Empresa}" TextColor="Gray" Margin="-4"></Label>
               <Label x:Name="lblCorreo" FontSize="13" Text="{Binding Correo}" TextColor="Gray" Margin="-4"></Label>
+              <Label x:Name="lblTelefono" FontSize="13" Text="{Binding Telefono}" TextColor="Gray" Margin="-4"></Label>
             </StackLayout>
           </ViewCell>
         </DataTemplate>
