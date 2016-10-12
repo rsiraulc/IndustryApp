@@ -1,9 +1,11 @@
 ﻿using System;
+using SQLite.Net.Attributes;
 
 namespace IndustryApp.Code.Models
 {
     public class Contactos
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
