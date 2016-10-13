@@ -27,7 +27,6 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-            lstContactos.IsPullToRefreshEnabled = true;
             CargarContactos();
         }
 
@@ -60,7 +59,7 @@ namespace IndustryApp.Pages
 
         private async void OpcionesContacto(Code.Models.Contactos c)
         {
-            var accion = await DisplayActionSheet(c.Nombre, "Cancelar", null, "Llamar", "Enviar Correo", "Eliminar");
+            var accion = await DisplayActionSheet(c.Nombre, "Cancelar", "Eliminar", "Llamar", "Enviar Correo");
             switch (accion)
             {
                 case "Llamar":

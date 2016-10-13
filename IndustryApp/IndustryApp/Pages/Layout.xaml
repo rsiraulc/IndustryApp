@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IndustryApp.Pages.Layout" Title="Expositores">
-  <Label Text="LAYOUT" VerticalOptions="Center" HorizontalOptions="Center" />
-</ContentPage>
+             x:Class="IndustryApp.Pages.Layout" Title="Expositores" BackgroundColor="#E2E2E2">
+  <StackLayout  Orientation="Vertical" Margin="10,0,0,10" Padding="20, 10, 20, 10">
+    <ListView x:Name="lvExpositores" RowHeight="50">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+              <Label x:Name="lblNumero" FontSize="15" TextColor="Black" Text="{Binding NumeroStand}" WidthRequest="60"/>
+              <Label x:Name="lblNombre" FontSize="17" TextColor="#313A49" Text="{Binding Nombre}"/>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate> 
+    </ListView>
+  </StackLayout>
+</ContentPage> 

@@ -59,16 +59,25 @@ namespace IndustryApp.Pages
             {
                 scanPage.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(async () =>
+
+                if (result.Text.Contains("VCARD"))
                 {
-                    await Navigation.PopAsync();
-                    var x = new vCardReader();
-                    x.ParseLines(result.Text);
-                    var cont = new Contactos();
-                    cont.AddContacto(x);
-                    await Navigation.PushAsync(new Menu());
-                });
-                scanPage.PauseAnalysis();
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Navigation.PopAsync();
+                        var x = new vCardReader();
+                        x.ParseLines(result.Text);
+                        var cont = new Contactos();
+                        cont.AddContacto(x);
+                        await Navigation.PushAsync(new Menu());
+                    });
+                    scanPage.PauseAnalysis();
+                }
+                else
+                {
+                    scanPage.PauseAnalysis();
+                    DisplayAlert("IndustryApp", "Favor de leer un código valido", "Aceptar");
+                }
             };
         }
 

@@ -9,7 +9,6 @@
         <DataTemplate>
           <ViewCell>
             <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10" Padding="20, 10, 5, 10">
-              <Image Source="icono_contacto_sm.png"></Image>
               <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-10, 0, 0, -4"></Label>
               <Label x:Name="lblEmpresa" FontSize="15" Text="{Binding Empresa}" TextColor="Gray" Margin="-4"></Label>
               <Label x:Name="lblCorreo" FontSize="13" Text="{Binding Correo}" TextColor="Gray" Margin="-4"></Label>
