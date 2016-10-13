@@ -7,6 +7,9 @@ using Javax.Security.Auth;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
+using IndustryApp.Code.Database;
+using MyProject.vCard;
+using ZXing;
 
 namespace IndustryApp.Pages
 {
@@ -17,6 +20,8 @@ namespace IndustryApp.Pages
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             CheckUsuario();
+
+            DataAccess da = new DataAccess();
         }
 
         private async void CheckUsuario()
@@ -54,15 +59,40 @@ namespace IndustryApp.Pages
             scanPage.OnScanResult += (result) =>
             {
                 scanPage.IsScanning = false;
-                Device.BeginInvokeOnMainThread(async () =>
+                if (result.Text.Contains("VCARD"))
                 {
-                    await Navigation.PopAsync();
-                    Application.Current.Properties["user"] = result.Text;
-                    await Application.Current.SavePropertiesAsync();
-                    await Navigation.PushAsync(new SeleccionEvento());
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Navigation.PopAsync();
 
-                });
+                        //MANDA A LLAMAR AL PARSE DEL CODIGO QR
+                        var reader = new vCardReader();
+                        reader.ParseLines(result.Text);
+
+                        await AddUsuario(reader);
+                    });
+                }
+                else
+                    DisplayAlert("IndustryApp", "Favor de leer un código valido", "Aceptar");
             };
+        }
+
+        private async Task AddUsuario(vCardReader _usuario)
+        {
+            var data = new DataAccess();
+            var usuario = new Code.Models.Usuario
+            {
+                Correo = _usuario.Emails[0].address,
+                Empresa = _usuario.Org,
+                FechaRegistro = DateTime.Now,
+                Nombre = _usuario.FormattedName,
+                Telefono = _usuario.Phones[0].number,
+            };
+
+            Application.Current.Properties["user"] = usuario.Correo;
+            data.InsertUsuario(usuario);
+            await Application.Current.SavePropertiesAsync();
+            await Navigation.PushAsync(new SeleccionEvento());
         }
     }
 }

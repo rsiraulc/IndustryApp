@@ -21,9 +21,10 @@ namespace IndustryApp.Code.Database
 
             //TABLAS
             connection.CreateTable<Contactos>();
+            connection.CreateTable<Usuario>();
         }
 
-
+        #region Contactos
         public bool InsertContacto(Contactos contacto)
         {
             if (GetContactoByCorreo(contacto.Correo) == null)
@@ -66,7 +67,53 @@ namespace IndustryApp.Code.Database
         {
             return GetContactos().Count;
         }
-                
+
+        public List<string> GetListaContactosString()
+        {
+            var contactos = GetContactos();
+            return contactos.Select(c => $"Nombre: {c.Nombre}, Empresa: {c.Empresa}, Email: {c.Correo}, Tel: {c.Telefono}").ToList();
+        }
+        #endregion
+
+        #region Registro Usuarios
+        public bool InsertUsuario(Usuario usuario)
+        {
+            if (GetContactoByCorreo(usuario.Correo) == null)
+            {
+                connection.Insert(usuario);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void UpdateUsuario(Usuario usuario)
+        {
+            connection.Update(usuario);
+        }
+
+        public void DeleteContacto(Usuario usuario)
+        {
+            connection.Delete(usuario);
+        }
+
+        public List<Usuario> GetUsuarios()
+        {
+            return connection.Table<Usuario>().ToList();
+        }
+
+        public Usuario GetUsuarioById(int id)
+        {
+            return connection.Table<Usuario>().FirstOrDefault(c => c.Id == id);
+        }
+
+        public int GetUsuarioId()
+        {
+            return connection.Table<Usuario>().FirstOrDefault().Id;
+        }
+        #endregion
         public void Dispose()
         {
             connection.Dispose();

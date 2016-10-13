@@ -26,6 +26,8 @@ namespace IndustryApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLStorage.Resource.String.ApplicationName = global::IndustryApp.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::IndustryApp.Droid.Resource.String.Hello;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::IndustryApp.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::IndustryApp.Droid.Resource.String.Hello;
 			global::Plugin.Toasts.Resource.Animation.abc_fade_in = global::IndustryApp.Droid.Resource.Animation.abc_fade_in;
@@ -4841,11 +4843,11 @@ namespace IndustryApp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060047
-			public const int ApplicationName = 2131099719;
-			
 			// aapt resource value: 0x7f060046
-			public const int Hello = 2131099718;
+			public const int ApplicationName = 2131099718;
+			
+			// aapt resource value: 0x7f060045
+			public const int Hello = 2131099717;
 			
 			// aapt resource value: 0x7f06002e
 			public const int abc_action_bar_home_description = 2131099694;
@@ -5006,8 +5008,8 @@ namespace IndustryApp.Droid
 			// aapt resource value: 0x7f06001e
 			public const int common_signin_button_text_long = 2131099678;
 			
-			// aapt resource value: 0x7f060045
-			public const int library_name = 2131099717;
+			// aapt resource value: 0x7f060047
+			public const int library_name = 2131099719;
 			
 			// aapt resource value: 0x7f06001f
 			public const int mr_button_content_description = 2131099679;

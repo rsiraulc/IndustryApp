@@ -6,12 +6,12 @@
              xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="BajaMak 2016" MasterBehavior="Popover"  BackgroundColor="#E2E2E2" WidthRequest="25">
   <MasterDetailPage.Master>
     <ContentPage Title="IndustryApp">
-      <StackLayout Orientation="Vertical" BackgroundColor="#E2E2E2">
+      <StackLayout Orientation="Vertical" BackgroundColor="#023F5E">
         <ListView x:Name="lvMenu" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected">
           <ListView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
-                <Label FontSize="18" TextColor="#023F5E" Text="{Binding Opcion}" Margin="10"/>
+                <Label FontSize="20" TextColor="#E2E2E2" Text="{Binding Opcion}" Margin="15,5,0,5"/>
               </ViewCell>
             </DataTemplate>
           </ListView.ItemTemplate>

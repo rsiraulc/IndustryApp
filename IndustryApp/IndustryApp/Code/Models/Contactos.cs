@@ -13,5 +13,6 @@ namespace IndustryApp.Code.Models
         public string Empresa { get; set; }
         public string Telefono { get; set; }
         public DateTime FechaRegistro { get; set; }
+        public int IdUsuario { get; set; }
     }
 }

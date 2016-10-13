@@ -65,10 +65,10 @@ namespace IndustryApp.Pages
                     Device.BeginInvokeOnMainThread(async () =>
                     {
                         await Navigation.PopAsync();
-                        var x = new vCardReader();
-                        x.ParseLines(result.Text);
+                        var reader = new vCardReader();
+                        reader.ParseLines(result.Text);
                         var cont = new Contactos();
-                        cont.AddContacto(x);
+                        cont.AddContacto(reader);
                         await Navigation.PushAsync(new Menu());
                     });
                     scanPage.PauseAnalysis();
@@ -84,8 +84,11 @@ namespace IndustryApp.Pages
         private async void ExportarContactos()
         {
             var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
-            if(msg)
-                await DisplayAlert("IndustryApp", "Contactos exportados", "Aceptar");
+            if (msg)
+            {
+                var exp = new ExportarContactos();
+                await exp.EnviarArchivo();   
+            }
         }
 
         #region EVENTO MENU

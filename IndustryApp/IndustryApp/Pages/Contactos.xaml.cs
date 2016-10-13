@@ -92,7 +92,8 @@ namespace IndustryApp.Pages
                 FechaRegistro = DateTime.Now,
                 Nombre = _contacto.FormattedName,
                 Apellido = _contacto.Surname,
-                Telefono = _contacto.Phones[0].number
+                Telefono = _contacto.Phones[0].number,
+                IdUsuario = 1
             };
 
             var data = new DataAccess();
@@ -100,11 +101,16 @@ namespace IndustryApp.Pages
 
 
             if (respuesta)
-                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Ok");
+                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Aceptar");
             else
-                await DisplayAlert("IndustryApp", "Este contacto ya existe en tu lista", "Ok");
+                await DisplayAlert("IndustryApp", _contacto.FormattedName +" ya existe en tu lista de contactos", "Aceptar");
 
             CargarContactos();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
     }
 }
