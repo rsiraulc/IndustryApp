@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Agenda" Title="Agenda">
   <StackLayout>
-    <ListView x:Name="lstAgenda" RowHeight="80">
+    <ListView x:Name="lstAgenda" RowHeight="100">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
