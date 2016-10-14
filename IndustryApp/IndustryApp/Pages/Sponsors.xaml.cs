@@ -3,31 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Sponsor =  IndustryApp.Code.Models.Sponsors;
 using Xamarin.Forms;
 
 namespace IndustryApp.Pages
 {
-    public class Sponsor
-    {
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-    }
-
     public partial class Sponsors : ContentPage
     {
         public Sponsors()
         {
             InitializeComponent();
-
-            lstSponsors.ItemsSource = new List<Sponsor>
-            {
-                new Sponsor { Nombre = "Smurfit Kappa", Descripcion = ""},
-                new Sponsor { Nombre = "Medtronic", Descripcion = ""},
-                new Sponsor { Nombre = "Kenmex", Descripcion = ""},
-                new Sponsor { Nombre = "RSI México", Descripcion = ""},
-                new Sponsor { Nombre = "Bose", Descripcion = ""},
-            };
+            var spn = new Sponsor();
+            lstSponsorsPlatino.ItemsSource = spn.GetAllSponsors();
+            //lstSponsorsOro.ItemsSource = spn.GetSponsorsOro();
         }
 
         private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)

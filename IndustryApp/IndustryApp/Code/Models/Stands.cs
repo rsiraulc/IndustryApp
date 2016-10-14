@@ -18,7 +18,7 @@ namespace IndustryApp.Code.Models
                 new Stands {NumeroStand = 004, Nombre = "Prensas y Cilindros", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
                 new Stands {NumeroStand = 005, Nombre = "Lubricantes de América", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
                 new Stands {NumeroStand = 006, Nombre = "www.empleonuevo.com", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
-                new Stands {NumeroStand = 007, Nombre = "Kafco de México", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
+                new Stands {NumeroStand = 007, Nombre = "Wens", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
                 new Stands {NumeroStand = 008, Nombre = "GIMAC", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
                 new Stands {NumeroStand = 009, Nombre = "GIMAC", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},
                 new Stands {NumeroStand = 010, Nombre = "Kafco de México", NumeroNombre = NumeroStand.ToString() + " - " + Nombre},

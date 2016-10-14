@@ -48,9 +48,8 @@ namespace IndustryApp.Code
             using (var reader = new StreamReader(stream))
             {
                 var x = await reader.ReadToEndAsync();
-
                 x += "\r\n\r\n Total de contactos: " + data.GetTotalContactos();
-                var s = $"mailto: raulc@rsimexico.com?subject=Lista de Contactos IndustryApp&body={x}&attachment={file.Path}";
+                var s = $"mailto: idaliaa@rsimexico.com?subject=IndustryApp - Lista de Contactos&body={x}&attachment={file.Path}";
                 Device.OpenUri(new Uri(s));
             }
 

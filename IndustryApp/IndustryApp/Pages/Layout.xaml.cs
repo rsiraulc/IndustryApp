@@ -13,6 +13,7 @@ namespace IndustryApp.Pages
         public Layout()
         {
             InitializeComponent();
+           // wvLayout.Source = "http://www.bajamak.com/index.php/es/bajamak-2013/plano-del-evento";
             CargarStands();
         }
 

@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Layout" Title="Expositores" BackgroundColor="#E2E2E2">
   <StackLayout  Orientation="Vertical" Margin="10,0,0,10" Padding="20, 10, 20, 10">
-    <ListView x:Name="lvExpositores" RowHeight="50">
+    
+    <!--<WebView x:Name="wvLayout" CanGoBack="False" CanGoForward="False" WidthRequest="300" HeightRequest="600"></WebView>-->
+    
+    <ListView x:Name="lvExpositores" RowHeight="50" IsVisible="False">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

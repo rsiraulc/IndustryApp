@@ -245,6 +245,51 @@
   <ItemGroup>
     <BundleResource Include="Resources\ht_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_cygo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_datatechnic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_empleonuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_expobaja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_g5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_macquarie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_matco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_modular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_rsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_siglo21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_smurfitkappa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_telnor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_wens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_mts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spn_kafko.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
