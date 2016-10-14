@@ -10,17 +10,12 @@ namespace IndustryApp.Pages
 {
     public partial class Layout : ContentPage
     {
-        public Layout()
+        public Layout(Stands stand)
         {
             InitializeComponent();
-           // wvLayout.Source = "http://www.bajamak.com/index.php/es/bajamak-2013/plano-del-evento";
-            CargarStands();
-        }
+            wvLayout.Source = "http://www.bajamak.com/index.php/es/bajamak-2013/plano-del-evento";
 
-        private void CargarStands()
-        {
-            var stands = new Stands();
-            lvExpositores.ItemsSource = stands.GetStands();
+            this.Title = $"{stand.NumeroStand} - {stand.Nombre}";
         }
     }
 }

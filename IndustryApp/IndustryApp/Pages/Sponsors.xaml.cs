@@ -14,8 +14,10 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             var spn = new Sponsor();
-            lstSponsorsPlatino.ItemsSource = spn.GetAllSponsors();
-            //lstSponsorsOro.ItemsSource = spn.GetSponsorsOro();
+            lstSponsorsPlatino.ItemsSource = spn.GetSponsorsPlatino();
+            lstSponsorsOro.ItemsSource = spn.GetSponsorsOro();
+            lstSponsorsPlata.ItemsSource = spn.GetSponsorsPlata();
+            lstSponsorsApoyo.ItemsSource = spn.GetSponsorsApoyo();
         }
 
         private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)

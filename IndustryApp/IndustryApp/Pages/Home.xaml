@@ -6,7 +6,7 @@
              x:Class="IndustryApp.Pages.Home" Title="TABS" BackgroundColor="#E2E2E2" Padding="0">
   <forms:TabbedPage.Children>
     <pages:Contactos />
-    <!--<pages:Agenda />-->
-    <pages:Layout />
+    <pages:Agenda />
+    <pages:Expositores />
   </forms:TabbedPage.Children>
 </TabbedPage>

@@ -22,11 +22,11 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
 
-            lstAgenda.ItemsSource = new List<Evento>
-            {
-                new Evento { Conferencista = "Juan Lopez", Fecha = DateTime.Now, Lugar = "Sala Conferencias 2",  Nombre = "Aumentar Ventas" },
-                new Evento { Conferencista = "Fernando Lopetegui", Fecha = DateTime.Now, Lugar = "Sala Conferencias 3",  Nombre = "¿Como ser exitoso?" },
-            };
+            //lstAgenda.ItemsSource = new List<Evento>
+            //{
+            //    new Evento { Conferencista = "Juan Lopez", Fecha = DateTime.Now, Lugar = "Sala Conferencias 2",  Nombre = "Aumentar Ventas" },
+            //    new Evento { Conferencista = "Fernando Lopetegui", Fecha = DateTime.Now, Lugar = "Sala Conferencias 3",  Nombre = "¿Como ser exitoso?" },
+            //};
         }
     }
 }
