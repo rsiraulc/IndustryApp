@@ -27,5 +27,10 @@ namespace IndustryApp.Pages
             var stand = (Stands) e.SelectedItem;
             await Navigation.PushAsync(new Layout(stand));
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
     }
 }

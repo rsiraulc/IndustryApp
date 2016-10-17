@@ -8,8 +8,8 @@
     <Image x:Name="imgLogo" HorizontalOptions="Center"/>
     <Label x:Name="lblFecha" TextColor="#0080FF" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
     <Label  x:Name="lblURL" TextColor="#0080FF"  FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
-    <Label x:Name="lblDescripcion" TextColor="#313A49" />
-    <Label x:Name="lblDescripcion2" TextColor="#313A49" />
+    <Label x:Name="lblDescripcion" TextColor="#313A49" LineBreakMode="WordWrap"/>
+    <Label x:Name="lblDescripcion2" TextColor="#313A49"  LineBreakMode="WordWrap" />
     <googleMaps:Map x:Name="mapa" WidthRequest="300" HeightRequest="200" IsShowingUser="True" MapType="Hybrid" Margin="0, 15, 0 ,10" />
   </StackLayout>
 </ContentPage>

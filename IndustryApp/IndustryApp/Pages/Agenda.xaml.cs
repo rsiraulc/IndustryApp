@@ -44,6 +44,12 @@ namespace IndustryApp.Pages
             var notifier = CrossLocalNotifications.CreateLocalNotifier();
             notifier.Notify(not);
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
     }
+
 }
 

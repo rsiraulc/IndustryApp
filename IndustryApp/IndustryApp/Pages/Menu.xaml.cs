@@ -32,6 +32,7 @@ namespace IndustryApp.Pages
                 new Code.Models.MenuItem {Id = 1, Opcion = "¿Como llegar?"},
                 new Code.Models.MenuItem {Id = 2, Opcion = "Uber Code"},
                 new Code.Models.MenuItem {Id = 3, Opcion = "Sponsors"},
+                new Code.Models.MenuItem {Id = 5, Opcion = "Ruta Expo Maquiladora"},
                 new Code.Models.MenuItem {Id = 4, Opcion = "Acerca"}
             };
         }
@@ -110,6 +111,9 @@ namespace IndustryApp.Pages
                         break;
                     case 4:
                         await Navigation.PushAsync(new Acerca());
+                        break;
+                    case 5:
+                        await Navigation.PushAsync(new SeleccionEvento());
                         break;
                 }
 

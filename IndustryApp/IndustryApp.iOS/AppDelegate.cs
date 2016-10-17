@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Google.Maps;
 using UIKit;
 
 namespace IndustryApp.iOS
@@ -20,11 +21,13 @@ namespace IndustryApp.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+
+        const string MapsApiKey = "AIzaSyC6wfRfOnxnZi0RkwMYW4TIsUU4_3oBxMs";
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            MapServices.ProvideAPIKey(MapsApiKey);
             //ZXing.Net.Mobile.Forms.Android.Platform.Init();
             return base.FinishedLaunching(app, options);
         }
