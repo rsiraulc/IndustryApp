@@ -53,8 +53,17 @@ namespace IndustryApp.Pages
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var c = (Code.Models.Contactos) e.SelectedItem;
-            OpcionesContacto(c);
+
+            if (((ListView) sender).SelectedItem == null)
+                return;
+            else
+            {
+                var c = (Code.Models.Contactos)e.SelectedItem;
+                OpcionesContacto(c);
+
+                ((ListView)sender).SelectedItem = null;
+            }
+           
         }
 
         private async void OpcionesContacto(Code.Models.Contactos c)
