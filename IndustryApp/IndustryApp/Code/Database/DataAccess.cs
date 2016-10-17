@@ -94,6 +94,11 @@ namespace IndustryApp.Code.Database
             connection.Update(usuario);
         }
 
+        public void DeleteAllUsuarios()
+        {
+            connection.DeleteAll<Usuario>();
+        }
+
         public void DeleteContacto(Usuario usuario)
         {
             connection.Delete(usuario);
@@ -109,9 +114,20 @@ namespace IndustryApp.Code.Database
             return connection.Table<Usuario>().FirstOrDefault(c => c.Id == id);
         }
 
+        public Usuario GetUsuarioByCorreo(string correo)
+        {
+            var usrs = GetUsuarios();
+            return connection.Table<Usuario>().FirstOrDefault(c => c.Correo == correo);
+        }
+
         public int GetUsuarioId()
         {
             return connection.Table<Usuario>().FirstOrDefault().Id;
+        }
+
+        public string GetUsuarioCorreo()
+        {
+            return connection.Table<Usuario>().FirstOrDefault().Correo;
         }
         #endregion
         public void Dispose()

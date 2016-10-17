@@ -56,6 +56,14 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LocalNotifications.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.LocalNotifications.1.0.0.0\lib\MonoAndroid10\LocalNotifications.Plugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LocalNotifications.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.LocalNotifications.1.0.0.0\lib\MonoAndroid10\LocalNotifications.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />

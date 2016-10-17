@@ -97,15 +97,18 @@ namespace IndustryApp.Pages
             };
 
             var data = new DataAccess();
-            var respuesta = data.InsertContacto(contacto);
-
-
-            if (respuesta)
-                await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Aceptar");
+            if(data.GetUsuarioByCorreo(contacto.Correo) != null)
+                await DisplayAlert("IndustryApp","No puedes agregarte a ti mismo como contacto", "Aceptar");
             else
-                await DisplayAlert("IndustryApp", _contacto.FormattedName +" ya existe en tu lista de contactos", "Aceptar");
+            {
+                if (data.InsertContacto(contacto))
+                    await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Aceptar");
+                else
+                    await DisplayAlert("IndustryApp", _contacto.FormattedName + " ya existe en tu lista de contactos", "Aceptar");
 
-            CargarContactos();
+                CargarContactos();
+            }
+           
         }
 
         protected override bool OnBackButtonPressed()

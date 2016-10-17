@@ -22,8 +22,8 @@ namespace IndustryApp.Pages
 
         private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var sponsor = e.SelectedItem;
-            await Navigation.PushAsync(new SponsorDetalle((Sponsor)sponsor));
+            //var sponsor = e.SelectedItem;
+            //await Navigation.PushAsync(new SponsorDetalle((Sponsor)sponsor));
         }
     }
 }

@@ -42,6 +42,7 @@ namespace IndustryApp.Code
         public async Task EnviarArchivo()
         {
             var data = new DataAccess();
+            var correo = data.GetUsuarioCorreo();
             await WriteFile();
             var file = await FileSystem.Current.LocalStorage.GetFileAsync("Contactos.txt");
             using (var stream = await file.OpenAsync(FileAccess.Read))
@@ -49,7 +50,7 @@ namespace IndustryApp.Code
             {
                 var x = await reader.ReadToEndAsync();
                 x += "\r\n\r\n Total de contactos: " + data.GetTotalContactos();
-                var s = $"mailto: idaliaa@rsimexico.com?subject=IndustryApp - Lista de Contactos&body={x}&attachment={file.Path}";
+                var s = $"mailto:{correo}?subject=IndustryApp - Lista de Contactos&body={x}&attachment={file.Path}";
                 Device.OpenUri(new Uri(s));
             }
 
