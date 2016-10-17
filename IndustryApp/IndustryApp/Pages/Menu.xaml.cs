@@ -21,11 +21,7 @@ namespace IndustryApp.Pages
 
             ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", ScanContacto));
 
-            ToolbarItems.Add(new ToolbarItem("Exportar", "export_contacto.png", () =>
-            {
-                ExportarContactos();
-              
-            }));
+            ToolbarItems.Add(new ToolbarItem("Exportar", "export_contacto.png", ExportarContactos));
 
             lvMenu.ItemsSource = new List<Code.Models.MenuItem>
             {
@@ -84,11 +80,17 @@ namespace IndustryApp.Pages
 
         private async void ExportarContactos()
         {
-            var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
-            if (msg)
+            var data = new DataAccess();
+            if(data.GetTotalContactos() == 0)
+                await DisplayAlert("IndustryApp", "Por el momento no cuentas con contactos registrados para importar", "Aceptar");
+            else
             {
-                var exp = new ExportarContactos();
-                await exp.EnviarArchivo();   
+                var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
+                if (msg)
+                {
+                    var exp = new ExportarContactos();
+                    await exp.EnviarArchivo();
+                }
             }
         }
 

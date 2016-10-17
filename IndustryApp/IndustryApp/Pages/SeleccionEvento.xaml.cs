@@ -19,12 +19,26 @@ namespace IndustryApp.Pages
             NavigationPage.SetHasBackButton(this, false);
         }
 
+        private bool _canClose = true;
+
         protected override bool OnBackButtonPressed()
         {
-            if(Device.OS == TargetPlatform.Android)
-             DependencyService.Get<IAndroidMethods>().CloseApp();
+            if (_canClose)
+            {
+                Salir();
+            }
+            return _canClose;
+        }
 
-            return base.OnBackButtonPressed();
+        private async void Salir()
+        {
+            var answer = await DisplayAlert("IndustryApp", "¿Deseas salir de la aplicación?", "Si", "No");
+            if (answer)
+            {
+                _canClose = false;
+                if (Device.OS == TargetPlatform.Android)
+                    DependencyService.Get<IAndroidMethods>().CloseApp(); ;
+            }
         }
 
         private async void btnBajaMak_OnClicked(object sender, EventArgs e)

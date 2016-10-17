@@ -28,9 +28,26 @@ namespace IndustryApp.Pages
             await Navigation.PushAsync(new Layout(stand));
         }
 
+        private bool _canClose = true;
+
         protected override bool OnBackButtonPressed()
         {
-            return true;
+            if (_canClose)
+            {
+                Salir();
+            }
+            return _canClose;
+        }
+
+        private async void Salir()
+        {
+            var answer = await DisplayAlert("IndustryApp", "¿Deseas salir de la aplicación?", "Si", "No");
+            if (answer)
+            {
+                _canClose = false;
+                if (Device.OS == TargetPlatform.Android)
+                    DependencyService.Get<IAndroidMethods>().CloseApp(); ;
+            }
         }
     }
 }
