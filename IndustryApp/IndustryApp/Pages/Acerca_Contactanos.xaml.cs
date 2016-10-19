@@ -14,9 +14,6 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
             Content = new ScrollView() { Content = stack };
-
-            lblDescripcion.Text = "Parque Industrial CPA Business Center";
-            lblDescripcion2.Text = "Corredor Tijuana-Rosarito 2000 #24702 Ejido Francisco Villa";
             lblDescripcion3.Text = "Mex (686) 554 3233";
             lblDescripcion4.Text = "US (619) 573 9379";
             lblDescripcion5.Text = "info@bajamak.com";

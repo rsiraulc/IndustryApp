@@ -8,6 +8,12 @@ using Xamarin.Forms;
 
 namespace IndustryApp.Pages
 {
+
+    public class Soluciones
+    {
+        public string Descripcion { get; set; }
+    }
+
     public partial class Acerca_RSI : ContentPage
     {
         public Acerca_RSI()
@@ -16,14 +22,27 @@ namespace IndustryApp.Pages
             lblDescripcion.Text = "Empresa especializada en la integración de soluciones para la automatización de procesos con presencia en Baja California, Puebla y Sonora. Contamos con todos los elementos requeridos para el proceso de impresión, identificación, rastreo y control de tus datos.";
             lblDescripcion2.Text = "Nuestras aplicaciones incluyen:";
 
-            string[] sAplicaciones = new string[]
+            CargarSoluciones();
+        }
+
+        private void CargarSoluciones()
+        {
+            var listaSoluciones = new List<Soluciones>
             {
-                "Identifación por radiofrecuencia (RFID)", "Hardware y consumibles de impresión térmica", "Desarrollo de Software",
-                "Hardware y consumibles para impresión a color", "Sistemas de visión", "Redes estructurales e inalámbricas", "Recolección de datos (Data Collection)",
-                "Sistemas para manejo de almacenes (WMS)", "Trabajos en proceso (WIP)", "Ubicación y control de activos", "Control de inventarios"
+                new Soluciones {Descripcion = "- Identifación por radiofrecuencia (RFID)"},
+                new Soluciones {Descripcion = "- Hardware y consumibles de impresión térmica"},
+                new Soluciones {Descripcion = "- Desarrollo de Software"},
+                new Soluciones {Descripcion = "- Hardware y consumibles para impresión a color"},
+                new Soluciones {Descripcion = "- Sistemas de visión"},
+                new Soluciones {Descripcion = "- Redes estructurales e inalámbricas"},
+                new Soluciones {Descripcion = "- Recolección de datos (Data Collection)"},
+                new Soluciones {Descripcion = "- Sistemas para manejo de almacenes (WMS)"},
+                new Soluciones {Descripcion = "- Trabajos en proceso (WIP)"},
+                new Soluciones {Descripcion = "- Ubicación y control de activos"},
+                new Soluciones {Descripcion = "- Control de inventarios"},
             };
 
-            lvAplicaciones.ItemsSource = sAplicaciones;
+            lvAplicaciones.ItemsSource = listaSoluciones;
         }
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)

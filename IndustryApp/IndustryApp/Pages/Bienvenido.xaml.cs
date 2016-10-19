@@ -33,7 +33,7 @@ namespace IndustryApp.Pages
             else
             {
                 var data = new DataAccess();
-                data.DeleteAllUsuarios();
+                data.DeleteAllUsuarios();                
                 btnScan.IsVisible = true;
             }
         }

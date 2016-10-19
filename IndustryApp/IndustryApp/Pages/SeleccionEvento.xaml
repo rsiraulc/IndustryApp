@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.SeleccionEvento"
-             Title="Ruta Expo Industrial" BackgroundColor="#E2E2E2">
+             Title="Ruta Industrial del Noroeste " BackgroundColor="#E2E2E2">
   <StackLayout>
     <Button Text=" " BackgroundColor="Transparent" Clicked="btnBajaMak_OnClicked" HorizontalOptions="Fill" Image="logo_bajamak.png" Margin="0, 0, 0, 0"/>
     <Button Text=" " BackgroundColor="Transparent" Clicked="Button_OnClicked" Image="logo_mexicali_supply.png" BorderWidth="0" Margin="0, 0, 0, 0"/>

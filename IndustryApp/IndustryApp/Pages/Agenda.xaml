@@ -3,17 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IndustryApp.Pages.Agenda" Title="Agenda">
   <StackLayout>
-    <ListView x:Name="lstAgenda" RowHeight="100">
+    <ListView x:Name="lstAgenda" RowHeight="100" ItemSelected="lvEventos_OnItemSelected">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10" Padding="20, 10, 5, 10">
-              <Label x:Name="lblNombre" FontSize="19" Text="{Binding Nombre}" TextColor="Black" Margin="-4" />
-              <Label x:Name="lblConferencista" FontSize="16" Text="{Binding Conferencista}" TextColor="Gray" Margin="-4" FontAttributes="Bold"/>
-              <StackLayout Orientation="Horizontal">
-                <Label x:Name="lblFecha" FontSize="15" Text="{Binding Fecha} " TextColor="Gray" Margin="-4" />
-                <Label FontSize="15" Text=" - " TextColor="Gray" Margin="-4" />
-                <Label x:Name="lblLugar" FontSize="15" Text=" {Binding Lugar}" TextColor="Gray" Margin="-4" />
+            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,10,10" Padding="20, 10, 5, 10">
+              <Label x:Name="lblNombre" FontSize="17" Text="{Binding NombreEvento}" TextColor="Black" Margin="-4" />
+              <StackLayout Orientation="Vertical">
+                <Label x:Name="lblFecha" FontSize="13" Text="{Binding Fecha} " TextColor="Gray" Margin="-4" />
+                <Label x:Name="lblLugar" FontSize="13" Text=" {Binding Lugar}" TextColor="Gray" Margin="-4" />
               </StackLayout>
             </StackLayout>
           </ViewCell>

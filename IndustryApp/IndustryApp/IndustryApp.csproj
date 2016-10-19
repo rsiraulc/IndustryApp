@@ -47,6 +47,7 @@
     <Compile Include="Code\Models\Sponsors.cs" />
     <Compile Include="Code\Models\Stands.cs" />
     <Compile Include="Code\Models\Usuario.cs" />
+    <Compile Include="Code\Notificacion.cs" />
     <Compile Include="Code\Notificaciones.cs" />
     <Compile Include="Code\ScanQR.cs" />
     <Compile Include="Code\Services\ContactoService.cs" />
@@ -66,6 +67,9 @@
     </Compile>
     <Compile Include="Pages\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AgendaDetalle.xaml.cs">
+      <DependentUpon>AgendaDetalle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Bienvenido.xaml.cs">
       <DependentUpon>Bienvenido.xaml</DependentUpon>
@@ -399,6 +403,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Expositores.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AgendaDetalle.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
