@@ -14,9 +14,11 @@ namespace IndustryApp.Pages
 {
     public partial class Menu : MasterDetailPage
     {
+        private bool _canClose = true;
         public Menu()
         {
             InitializeComponent();
+
             NavigationPage.SetHasBackButton(this, false);
 
             ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", ScanContacto));
@@ -91,6 +93,25 @@ namespace IndustryApp.Pages
                     var exp = new ExportarContactos();
                     await exp.EnviarArchivo();
                 }
+            }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (_canClose)
+                Salir();
+            
+            return _canClose;
+        }
+
+        private async void Salir()
+        {
+            var answer = await DisplayAlert("IndustryApp", "¿Deseas salir de la aplicación?", "Si", "No");
+            if (answer)
+            {
+                _canClose = false;
+                if (Device.OS == TargetPlatform.Android)
+                    DependencyService.Get<IAndroidMethods>().CloseApp(); 
             }
         }
 

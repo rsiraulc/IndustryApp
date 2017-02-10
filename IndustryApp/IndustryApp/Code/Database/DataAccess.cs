@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
 using IndustryApp.Code.Models;
+using IndustryApp.Code.Services.Messages;
 using SQLite.Net;
 
 namespace IndustryApp.Code.Database
@@ -25,17 +26,22 @@ namespace IndustryApp.Code.Database
         }
 
         #region Contactos
-        public bool InsertContacto(Contactos contacto)
+        public ContactoResponse InsertContacto(Contactos contacto)
         {
+            var response = new ContactoResponse();
             if (GetContactoByCorreo(contacto.Correo) == null)
             {
                 connection.Insert(contacto);
-                return true;
+                response.Contacto = contacto;
+                response.Message = contacto.Nombre + " ha sido agregado a tu lista de contactos";
+                response.Success = true;
             }
             else
             {
-                return false;
-            }            
+                response.Message = contacto.Nombre + " ya existe en tu lista de contactos";
+            }
+
+            return response;
         }
 
         public void UpdateContacto(Contactos contacto)

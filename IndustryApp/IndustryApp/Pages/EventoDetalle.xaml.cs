@@ -43,7 +43,7 @@ namespace IndustryApp.Pages
                     pin = new Pin {Position = coordenadas, Label = "Parque Industrial Vie Verte", IsDraggable = false};
                     mapa.Pins.Insert(0, pin);
                     break;
-                case "Mexicali Supply":
+                case "Bajamak":
                         lblDescripcion.Text =
                             "Mexicali Supply nace con el objetivo de atraer y fortalecer redes de proveeduría a nivel local, regional e internacional que den soporte a los Sectores Industriales.Se busca acercar a las empresas tractoras de la región una oferta de productos y servicios que cumplan con los estándares de calidad que la industria requiere y puedan exponer su demanda a compañías proveedoras potenciales nacionales e internacionales.";
                     lblDescripcion2.Text =

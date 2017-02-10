@@ -19,10 +19,11 @@ namespace IndustryApp.Pages
 
         private void SetLocalizacion()
         {
-            var coordenadas = new Position(32.5288348, -116.9693253);
+            var coordenadas = new Position(32.569511, -115.4210412);
             mapa.MoveToRegion(MapSpan.FromCenterAndRadius(coordenadas, Distance.FromKilometers(1)));
-            var pin = new Pin {Position = coordenadas, Label = "Bajamak 2016", IsDraggable = false};
+            var pin = new Pin {Position = coordenadas, Label = "Mexicali Supply 2016 - Parque Industrial El Dorado", IsDraggable = false};
             mapa.Pins.Insert(0, pin);
+            
         }
     }
 }

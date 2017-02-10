@@ -28,7 +28,7 @@ namespace IndustryApp.Pages
         {
             if (Application.Current.Properties.ContainsKey("user"))
             {
-                await Navigation.PushAsync(new SeleccionEvento());
+                await Navigation.PushAsync(new Menu());
             }
             else
             {

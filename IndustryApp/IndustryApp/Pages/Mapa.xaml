@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             x:Class="IndustryApp.Pages.Mapa" Title="¿Cómo llegar a Bajamak 2016?" BackgroundColor="#E2E2E2">
+             x:Class="IndustryApp.Pages.Mapa" Title="¿Cómo llegar a MSE 2017?" BackgroundColor="#E2E2E2">
   <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
     <googleMaps:Map x:Name="mapa" IsShowingUser="True" MapType="Hybrid" Margin="0"></googleMaps:Map>
   </ContentView>

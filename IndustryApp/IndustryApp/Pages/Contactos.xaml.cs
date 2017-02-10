@@ -36,18 +36,10 @@ namespace IndustryApp.Pages
             using (var datos = new DataAccess())
             {
                 lstContactos.ItemsSource = null;
-                lstContactos.ItemsSource = datos.GetContactos();
-
-                if (datos.GetTotalContactos() == 0)
-                {
-                    lblNoContacto.IsVisible = true;
-                    lstContactos.IsVisible = false;
-                }
-                else
-                {
-                    lblNoContacto.IsVisible = false;
-                    lstContactos.IsVisible = true;
-                }
+                var contactos = datos.GetContactos();
+                lstContactos.ItemsSource = contactos;
+                lblNoContacto.IsVisible = contactos.Count == 0;
+                lstContactos.IsVisible = contactos.Count > 0;
             }
         }
 
@@ -98,7 +90,6 @@ namespace IndustryApp.Pages
             {
                 Correo = _contacto.Emails[0].address,
                 Empresa = _contacto.Org,
-                FechaRegistro = DateTime.Now,
                 Nombre = _contacto.FormattedName,
                 Apellido = _contacto.Surname,
                 Telefono = _contacto.Phones[0].number,
@@ -110,11 +101,8 @@ namespace IndustryApp.Pages
                 await DisplayAlert("IndustryApp","No puedes agregarte a ti mismo como contacto", "Aceptar");
             else
             {
-                if (data.InsertContacto(contacto))
-                    await DisplayAlert("IndustryApp", _contacto.FormattedName + " ha sido agregado a tu lista de contactos", "Aceptar");
-                else
-                    await DisplayAlert("IndustryApp", _contacto.FormattedName + " ya existe en tu lista de contactos", "Aceptar");
-
+                var response = data.InsertContacto(contacto);
+                await DisplayAlert("IndustryApp", response.Message, "Aceptar");
                 CargarContactos();
             }
            
@@ -138,7 +126,7 @@ namespace IndustryApp.Pages
             {
                 _canClose = false;
                 if (Device.OS == TargetPlatform.Android)
-                    DependencyService.Get<IAndroidMethods>().CloseApp(); ;
+                    DependencyService.Get<IAndroidMethods>().CloseApp(); 
             }
         }
     }

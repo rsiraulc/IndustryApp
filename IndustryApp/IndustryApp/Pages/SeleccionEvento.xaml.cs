@@ -42,10 +42,9 @@ namespace IndustryApp.Pages
         }
 
         private async void btnBajaMak_OnClicked(object sender, EventArgs e)
-        { 
-            await Navigation.PushAsync(new Menu());
+        {
+            await Navigation.PushAsync(new EventoDetalle("BajaMak"));
         }
-
 
         private async void btnHermosillo_OnClicked(object sender, EventArgs e)
         {
@@ -54,7 +53,7 @@ namespace IndustryApp.Pages
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EventoDetalle("Mexicali Supply"));
+            await Navigation.PushAsync(new Menu());
         }
     }
 }

@@ -14,7 +14,7 @@ namespace IndustryApp.Code.Models
         public string Pais { get; set; }
         public string Longitud { get; set; }
         public string Latitud { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFinal { get; set; }
+        //public DateTime FechaInicio { get; set; }
+        //public DateTime FechaFinal { get; set; }
     }
 }

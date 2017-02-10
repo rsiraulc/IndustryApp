@@ -51,6 +51,10 @@
     <Compile Include="Code\Notificaciones.cs" />
     <Compile Include="Code\ScanQR.cs" />
     <Compile Include="Code\Services\ContactoService.cs" />
+    <Compile Include="Code\Services\INativeHelper.cs" />
+    <Compile Include="Code\Services\Messages\ContactoResponse.cs" />
+    <Compile Include="Code\Services\Messages\ContactosResponse.cs" />
+    <Compile Include="Code\Services\Messages\ResponseBase.cs" />
     <Compile Include="Code\Services\WSService.cs" />
     <Compile Include="Code\vCardReader.cs" />
     <Compile Include="Pages\Acerca.xaml.cs">

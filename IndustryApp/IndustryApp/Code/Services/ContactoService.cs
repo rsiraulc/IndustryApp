@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IndustryApp.Code.Models;
+using IndustryApp.Code.Services.Messages;
 
 namespace IndustryApp.Code.Services
 {
@@ -19,17 +20,18 @@ namespace IndustryApp.Code.Services
             set { lContactos = value; }
         }
 
-        public bool AddContacto(Contactos _contacto)
+        public ContactoResponse AddContacto(Contactos _contacto)
         {
-
+            var response = new ContactoResponse();
             var existe = listaContactos.Find(x => x.Correo == _contacto.Correo);
             if (existe == null)
             {
                 listaContactos.Add(_contacto);
-                return true;
+                response.Contacto = _contacto;
+                response.Success = true;
+                response.Message = _contacto.Nombre + " ha sido agregado a tu lista de contactos";
             }
-            else
-                return false;
+            return response;
         }
 
         public bool AddObservableCollection(Contactos _contacto)
