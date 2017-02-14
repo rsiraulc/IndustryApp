@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
+using Android.Provider;
 using IndustryApp.Code.Models;
 using IndustryApp.Code.Services.Messages;
 using SQLite.Net;
+
 
 namespace IndustryApp.Code.Database
 {
@@ -56,7 +58,7 @@ namespace IndustryApp.Code.Database
 
         public List<Contactos> GetContactos()
         {
-            return connection.Table<Contactos>().ToList();
+            return connection.Table<Contactos>().OrderBy(c => c.Apellido).ToList();
         } 
 
         public Contactos GetContactoById(int id)
@@ -74,11 +76,16 @@ namespace IndustryApp.Code.Database
             return GetContactos().Count;
         }
 
-        public List<string> GetListaContactosString()
+        public string GetListaContactosString()
         {
             var contactos = GetContactos();
-            return contactos.Select(c => $"Nombre: {c.Nombre}, Empresa: {c.Empresa}, Email: {c.Correo}, Tel: {c.Telefono}").ToList();
+
+            return contactos.Aggregate("", (current, c) => current + $"{c.Nombre}, \t{c.Empresa}, \t{c.Correo}, \t{c.Telefono}\r\n");
+            //return contactos.Select(c => $"{c.Nombre}\t{c.Empresa}\t{c.Correo}\t{c.Telefono}").ToList();
+
+            //return contactos.Select(c => $"<tr><td>Nombre: {c.Nombre}, Empresa: {c.Empresa}, Email: {c.Correo}, Tel: {c.Telefono}").ToList();
         }
+
         #endregion
 
         #region Registro Usuarios

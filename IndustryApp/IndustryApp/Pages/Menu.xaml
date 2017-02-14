@@ -5,7 +5,7 @@
              xmlns:local="IndustryApp.Pages"
              xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="Mexicali Supply 2017" MasterBehavior="Popover"  BackgroundColor="#E2E2E2" WidthRequest="25">
   <MasterDetailPage.Master>
-    <ContentPage Title="IndustryApp">
+    <ContentPage Title="IndustryApp" BackgroundColor="#E2E2E2">
       <StackLayout Orientation="Vertical" BackgroundColor="#023F5E">
         <ListView x:Name="lvMenu" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected">
           <ListView.ItemTemplate>
@@ -19,7 +19,7 @@
       </StackLayout>
     </ContentPage>
   </MasterDetailPage.Master>
-  <MasterDetailPage.Detail>
-    <pages:Home />
+  <MasterDetailPage.Detail >
+    <pages:Contactos/>
   </MasterDetailPage.Detail>
 </MasterDetailPage>

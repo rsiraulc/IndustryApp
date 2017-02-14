@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.DetalleContacto" Title="Contacto" BackgroundColor="#E2E2E2">
+  <StackLayout Orientation="Horizontal" Margin="15">
+    <Image x:Name="imgContacto" HorizontalOptions="Center"/>
+    <Label x:Name="lblNombre" TextColor="#0080FF" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+    <StackLayout Orientation="Vertical">
+      <Label x:Name="lblEmpresa" FontSize="16" Text="{Binding Empresa}" TextColor="Gray"></Label>
+      <Label x:Name="lblCorreo" FontSize="16" Text="{Binding Correo}" TextColor="Gray"></Label>
+      <Label x:Name="lblTelefono" FontSize="16" Text="{Binding Telefono}" TextColor="Gray"></Label>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

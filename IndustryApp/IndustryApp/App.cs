@@ -11,8 +11,10 @@ namespace IndustryApp
     {
         public App()
         {
+
             // The root page of your application
-            MainPage = new NavigationPage(new Bienvenido());
+            //    MainPage = Application.Current.Properties.ContainsKey("user") ? new NavigationPage(new Menu()) : new NavigationPage(new Bienvenido());
+            MainPage = new NavigationPage(new Menu());
         }
 
         protected override void OnStart()

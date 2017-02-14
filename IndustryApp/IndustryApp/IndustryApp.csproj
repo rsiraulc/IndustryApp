@@ -81,6 +81,9 @@
     <Compile Include="Pages\Contactos.xaml.cs">
       <DependentUpon>Contactos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DetalleContacto.xaml.cs">
+      <DependentUpon>DetalleContacto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EventoDetalle.xaml.cs">
       <DependentUpon>EventoDetalle.xaml</DependentUpon>
     </Compile>
@@ -413,6 +416,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AgendaDetalle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\DetalleContacto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

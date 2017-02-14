@@ -9,6 +9,7 @@ using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
 using IndustryApp.Code.Models;
 using IndustryApp.Pages;
+using ZXing;
 
 namespace IndustryApp.Pages
 {
@@ -19,17 +20,16 @@ namespace IndustryApp.Pages
         {
             InitializeComponent();
 
-            NavigationPage.SetHasBackButton(this, false);
-
-            ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", ScanContacto));
-
-            ToolbarItems.Add(new ToolbarItem("Exportar", "export_contacto.png", ExportarContactos));
+           
 
             lvMenu.ItemsSource = new List<Code.Models.MenuItem>
             {
+                //new Code.Models.MenuItem {Id = 8, Opcion = "Mis Contactos"},
                 new Code.Models.MenuItem {Id = 1, Opcion = "¿Como llegar?"},
                 new Code.Models.MenuItem {Id = 2, Opcion = "Uber Code"},
                 new Code.Models.MenuItem {Id = 3, Opcion = "Sponsors"},
+                new Code.Models.MenuItem {Id = 6, Opcion = "Agenda MSE 17"},
+                new Code.Models.MenuItem {Id = 7, Opcion = "Expositores"},
                 new Code.Models.MenuItem {Id = 5, Opcion = "Ruta Expo Maquiladora"},
                 new Code.Models.MenuItem {Id = 4, Opcion = "Acerca"}
             };
@@ -48,27 +48,45 @@ namespace IndustryApp.Pages
             {
                 DefaultOverlayTopText = string.Empty,
                 DefaultOverlayBottomText = string.Empty,
-                DefaultOverlayShowFlashButton = true
+                DefaultOverlayShowFlashButton = true,
+                Title = "Escanea Código QR",
+                IsScanning = true,
+                IsAnalyzing =  true
             };
 
-            scanPage.Title = "Escanea Código QR";
-            await Navigation.PushAsync(scanPage);
+            await Navigation.PushModalAsync(scanPage, true);
 
             scanPage.OnScanResult += (result) =>
             {
                 scanPage.IsScanning = false;
-
-
+                scanPage.IsAnalyzing = false;
+                
                 if (result.Text.Contains("VCARD"))
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        await Navigation.PopAsync();
+                        await Navigation.PopModalAsync(true);
                         var reader = new vCardReader();
                         reader.ParseLines(result.Text);
-                        var cont = new Contactos();
-                        cont.AddContacto(reader);
-                        await Navigation.PushAsync(new Menu());
+                        var contacto = new Code.Models.Contactos
+                        {
+                            Correo = reader.Emails[0].address,
+                            Empresa = reader.Org,
+                            Nombre = reader.FormattedName,
+                            Apellido = reader.Surname,
+                            Telefono = reader.Phones[0].number,
+                            IdUsuario = 1
+                        };
+
+                        var data = new DataAccess();
+                        var c = new Contactos();
+                        var response = data.InsertContacto(contacto);
+                        await DisplayAlert("IndustryApp", response.Message, "Aceptar");
+                        
+                        //await Navigation.PushAsync(new Contactos(), true);
+                        //await Navigation.PopAsync();
+                        //await Navigation.PushAsync(new DetalleContacto(response.Contacto));
+
                     });
                     scanPage.PauseAnalysis();
                 }
@@ -77,7 +95,7 @@ namespace IndustryApp.Pages
                     scanPage.PauseAnalysis();
                     DisplayAlert("IndustryApp", "Favor de leer un código valido", "Aceptar");
                 }
-            };
+            };           
         }
 
         private async void ExportarContactos()
@@ -88,11 +106,9 @@ namespace IndustryApp.Pages
             else
             {
                 var msg = await DisplayAlert("IndustryApp", "¿Deseas exportar tu lista de contactos a tu correo?", "Si", "No");
-                if (msg)
-                {
-                    var exp = new ExportarContactos();
-                    await exp.EnviarArchivo();
-                }
+                if (!msg) return;
+                var exp = new ExportarContactos();
+                await exp.EnviarArchivo();
             }
         }
 
@@ -137,6 +153,15 @@ namespace IndustryApp.Pages
                         break;
                     case 5:
                         await Navigation.PushAsync(new SeleccionEvento());
+                        break;
+                    case 6:
+                        await Navigation.PushAsync(new Agenda());
+                        break;
+                    case 7:
+                        await Navigation.PushAsync(new Expositores());
+                        break;
+                    case 8:
+                        await Navigation.PushAsync(new Contactos());
                         break;
                 }
 
