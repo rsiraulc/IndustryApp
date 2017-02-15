@@ -17,13 +17,6 @@ namespace IndustryApp.Pages
             lstSponsorsPlatino.ItemsSource = spn.GetSponsorsPlatino();
             lstSponsorsOro.ItemsSource = spn.GetSponsorsOro();
             lstSponsorsPlata.ItemsSource = spn.GetSponsorsPlata();
-            lstSponsorsApoyo.ItemsSource = spn.GetSponsorsApoyo();
-        }
-
-        private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            //var sponsor = e.SelectedItem;
-            //await Navigation.PushAsync(new SponsorDetalle((Sponsor)sponsor));
         }
     }
 }

@@ -4,6 +4,5 @@
              x:Class="IndustryApp.Pages.SponsorDetalle" BackgroundColor="#E2E2E2">
   <StackLayout>
     <Label x:Name="lblSponsor" Text="{Binding MainText}"  VerticalOptions="Center" HorizontalOptions="Center" FontSize="40" />
-    <Label Text="Hola Merca" />
   </StackLayout>
 </ContentPage>

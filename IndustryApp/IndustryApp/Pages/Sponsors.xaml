@@ -5,63 +5,44 @@
   <ScrollView>
     <StackLayout Margin="10">
 
-      <Label Text="Patrocinador Platino" FontSize="25" FontAttributes="Bold" TextColor="#023F5E"/>
-      <ListView x:Name="lstSponsorsPlatino" RowHeight="90"  ItemSelected="ListView_OnItemSelected">
+      <Label Text="Patrocinador Platino" FontSize="20" FontAttributes="Bold" TextColor="#023F5E"/>
+      <ListView x:Name="lstSponsorsPlatino" RowHeight="90">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
               <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
-                <Image x:Name="imgLogoSponsor" WidthRequest="90" HeightRequest="60" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
-                <Label x:Name="lblSponsor" FontSize="16" Text="{Binding Nombre}" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"></Label>
+                <Image x:Name="imgLogoSponsor" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
               </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
       
-      <Label Text="Patrocinador Oro" FontSize="25" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True" />
-      <ListView x:Name="lstSponsorsOro" RowHeight="90"  ItemSelected="ListView_OnItemSelected" IsVisible="True">
+      <Label Text="Patrocinadores Oro" FontSize="20" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True" />
+      <ListView x:Name="lstSponsorsOro" RowHeight="90" IsVisible="True">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
               <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
-                <Image x:Name="imgLogoSponsor" WidthRequest="90" HeightRequest="60" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
-                <Label x:Name="lblSponsor" FontSize="16" Text="{Binding Nombre}" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"></Label>
+                <Image x:Name="imgLogoSponsor" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
               </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
 
-      <Label Text="Patrocinadores Plata" FontSize="25" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True"/>
-      <ListView x:Name="lstSponsorsPlata" RowHeight="90" HeightRequest="380"  ItemSelected="ListView_OnItemSelected" IsVisible="True">
+      <Label Text="Patrocinadores Plata" FontSize="20" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True"/>
+      <ListView x:Name="lstSponsorsPlata" RowHeight="90" HeightRequest="380" IsVisible="True">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
               <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
-                <Image x:Name="imgLogoSponsor" WidthRequest="90" HeightRequest="60" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
-                <Label x:Name="lblSponsor" FontSize="16" Text="{Binding Nombre}" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"></Label>
+                <Image x:Name="imgLogoSponsor"  Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
               </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-
-      <Label Text=" Patrocinadores de Apoyo" FontSize="25" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True"/>
-      <ListView x:Name="lstSponsorsApoyo" RowHeight="60"  ItemSelected="ListView_OnItemSelected" IsVisible="True">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Margin="10,0,0,10">
-                <Image x:Name="imgLogoSponsor" WidthRequest="100" HeightRequest="100" Source="{Binding Imagen}" HorizontalOptions="Center" Margin="10"></Image>
-                <Label x:Name="lblSponsor" FontSize="20" Text="{Binding Nombre}" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"></Label>
-              </StackLayout>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-
-
     </StackLayout>
   </ScrollView>
 </ContentPage>

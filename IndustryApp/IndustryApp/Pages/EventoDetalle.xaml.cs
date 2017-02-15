@@ -34,8 +34,8 @@ namespace IndustryApp.Pages
                     lblDescripcion2.Text =
                         "Su cercanía con la frontera, el desarrollo del corredor industrial Phoenix-Tucson, el interés de inversionistas en la región para impulsar sectores como el aeroespacial y su prestigio en la industria automotriz, constituyen una oportunidad para explorar y detonar nuevas áreas de desarrollo en la región. ";
                     imgLogo.Source = "ht_logo.png";
-                    lblFecha.Text = "Del 23 al 25 de Noviembre del 2016";
-                    lblURL.Text = "http://hermosillotransforma.com/expo";
+                    lblFecha.Text = "Noviembre del 2017";
+                    lblURL.Text = "http://hermosillotransforma.com";
 
                     //MAPA
                     coordenadas = new Position(29.1070678, -111.0230574);
@@ -43,19 +43,19 @@ namespace IndustryApp.Pages
                     pin = new Pin {Position = coordenadas, Label = "Parque Industrial Vie Verte", IsDraggable = false};
                     mapa.Pins.Insert(0, pin);
                     break;
-                case "Bajamak":
+                case "BajaMak":
                         lblDescripcion.Text =
-                            "Mexicali Supply nace con el objetivo de atraer y fortalecer redes de proveeduría a nivel local, regional e internacional que den soporte a los Sectores Industriales.Se busca acercar a las empresas tractoras de la región una oferta de productos y servicios que cumplan con los estándares de calidad que la industria requiere y puedan exponer su demanda a compañías proveedoras potenciales nacionales e internacionales.";
+                            "BajaMak nace con el objetivo de atraer y fortalecer redes de proveeduría a nivel local, regional e internacional que den soporte a los Sectores Industriales de Baja California. ";
                     lblDescripcion2.Text =
-                        "Contará con miembros de la industria de Energía Renovables, Plástica, Electrónica, Productos Médicos, Metalmecánico, Automotriz y Aeroespacial. También contará con Pabellones Especiales para los sectores Gubernamental, Desarrolladores e Instituciones Educativas.";
-                    imgLogo.Source = "mse_logo.png";
-                    lblFecha.Text = "Jueves 23 de Febrero del 2017";
-                    lblURL.Text = "http://mexicalisupply.com/index.php/es/";
+                        "BajaMak es la oportunidad única de conocer los procesos de manufactura y necesidades de insumos de la industria maquiladora, y busca un espacio en donde empresas tractoras de Baja California tengan la posibilidad de exponer su demanda en base a proveeduría de insumos y servicios a compañías proveedoras potenciales nacionales e internacionales.";
+                    imgLogo.Source = "logo_bajamak.png";
+                    lblFecha.Text = "Octubre del 2017";
+                    lblURL.Text = "http://www.bajamak.com";
 
                     //MAPA
-                    coordenadas = new Position(32.570379, -115.4253113);
+                    coordenadas = new Position(32.5281937, -116.9670978);
                     mapa.MoveToRegion(MapSpan.FromCenterAndRadius(coordenadas, Distance.FromKilometers(1)));
-                    pin = new Pin { Position = coordenadas, Label = "Parque Industrial El Dorado", IsDraggable = false };
+                    pin = new Pin { Position = coordenadas, Label = "BajaMak", IsDraggable = false };
                     mapa.Pins.Insert(0, pin);
                     break;
             }

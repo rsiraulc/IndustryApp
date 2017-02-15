@@ -10,6 +10,7 @@
             <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,10,10" Padding="20, 10, 5, 10">
               <Label x:Name="lblNombre" FontSize="17" Text="{Binding NombreEvento}" TextColor="Black" Margin="-4" />
               <StackLayout Orientation="Vertical">
+                <Label x:Name="lblConferencista" FontSize="13" Text="{Binding NombreConferencista} " TextColor="Gray" Margin="-4" />
                 <Label x:Name="lblFecha" FontSize="13" Text="{Binding Fecha} " TextColor="Gray" Margin="-4" />
                 <Label x:Name="lblLugar" FontSize="13" Text=" {Binding Lugar}" TextColor="Gray" Margin="-4" />
               </StackLayout>

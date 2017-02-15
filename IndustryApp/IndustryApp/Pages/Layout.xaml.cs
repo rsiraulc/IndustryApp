@@ -13,9 +13,9 @@ namespace IndustryApp.Pages
         public Layout(Stands stand)
         {
             InitializeComponent();
-            wvLayout.Source = "http://www.bajamak.com/index.php/es/bajamak-2013/plano-del-evento";
+            wvLayout.Source = "http://173.0.52.16/BothControl/PAGE_InicioAlterno/gAwAAOqpgq1TemRMVnlkVkJMAAA?WD_ACTION_=IMAGE&A5=-1383945750";
 
-            this.Title = $"{stand.NumeroStand} - {stand.Nombre}";
+            Title = $"{stand.NumeroStand} - {stand.Nombre}";
         }
     }
 }

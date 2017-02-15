@@ -4061,56 +4061,59 @@ namespace IndustryApp.Droid
 			// aapt resource value: 0x7f0200d5
 			public const int mse_logo = 2130837717;
 			
-			// aapt resource value: 0x7f0200e6
-			public const int notification_template_icon_bg = 2130837734;
+			// aapt resource value: 0x7f0200e7
+			public const int notification_template_icon_bg = 2130837735;
 			
 			// aapt resource value: 0x7f0200d6
 			public const int planoMS = 2130837718;
 			
 			// aapt resource value: 0x7f0200d7
-			public const int spn_cygo = 2130837719;
+			public const int spn_badger = 2130837719;
 			
 			// aapt resource value: 0x7f0200d8
-			public const int spn_datatechnic = 2130837720;
+			public const int spn_cygo = 2130837720;
 			
 			// aapt resource value: 0x7f0200d9
-			public const int spn_empleonuevo = 2130837721;
+			public const int spn_datatechnic = 2130837721;
 			
 			// aapt resource value: 0x7f0200da
-			public const int spn_expobaja = 2130837722;
+			public const int spn_empleonuevo = 2130837722;
 			
 			// aapt resource value: 0x7f0200db
-			public const int spn_g5 = 2130837723;
+			public const int spn_expobaja = 2130837723;
 			
 			// aapt resource value: 0x7f0200dc
-			public const int spn_kafko = 2130837724;
+			public const int spn_g5 = 2130837724;
 			
 			// aapt resource value: 0x7f0200dd
-			public const int spn_macquarie = 2130837725;
+			public const int spn_kafko = 2130837725;
 			
 			// aapt resource value: 0x7f0200de
-			public const int spn_matco = 2130837726;
+			public const int spn_macquarie = 2130837726;
 			
 			// aapt resource value: 0x7f0200df
-			public const int spn_modular = 2130837727;
+			public const int spn_matco = 2130837727;
 			
 			// aapt resource value: 0x7f0200e0
-			public const int spn_mts = 2130837728;
+			public const int spn_modular = 2130837728;
 			
 			// aapt resource value: 0x7f0200e1
-			public const int spn_rsi = 2130837729;
+			public const int spn_mts = 2130837729;
 			
 			// aapt resource value: 0x7f0200e2
-			public const int spn_siglo21 = 2130837730;
+			public const int spn_rsi = 2130837730;
 			
 			// aapt resource value: 0x7f0200e3
-			public const int spn_smurfitkappa = 2130837731;
+			public const int spn_siglo21 = 2130837731;
 			
 			// aapt resource value: 0x7f0200e4
-			public const int spn_telnor = 2130837732;
+			public const int spn_smurfitkappa = 2130837732;
 			
 			// aapt resource value: 0x7f0200e5
-			public const int spn_wens = 2130837733;
+			public const int spn_telnor = 2130837733;
+			
+			// aapt resource value: 0x7f0200e6
+			public const int spn_wens = 2130837734;
 			
 			static Drawable()
 			{

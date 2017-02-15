@@ -29,7 +29,6 @@ namespace IndustryApp.Pages
         public Contactos()
         {
             InitializeComponent();
-            //NavigationPage.SetHasBackButton(this, false);
             ToolbarItems.Add(new ToolbarItem("Nuevo", "add_contacto.png", ScanContacto));
             ToolbarItems.Add(new ToolbarItem("Exportar", "export_contacto.png", ExportarContactos));
             CargarContactos();
@@ -84,10 +83,6 @@ namespace IndustryApp.Pages
                         var response = data.InsertContacto(contacto);
                         await DisplayAlert("IndustryApp", response.Message, "Aceptar");
                         CargarContactos();
-
-                        //await Navigation.PushAsync(new Contactos(), true);
-                        //await Navigation.PopAsync();
-                        //await Navigation.PushAsync(new DetalleContacto(response.Contacto));
 
                     });
                     scanPage.PauseAnalysis();

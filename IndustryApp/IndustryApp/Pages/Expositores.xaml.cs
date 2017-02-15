@@ -25,7 +25,7 @@ namespace IndustryApp.Pages
         private async void lvExpositores_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var stand = (Stands) e.SelectedItem;
-            await Navigation.PushAsync(new Layout(stand));
+            await Navigation.PushAsync(new Layout(stand), true);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace IndustryApp.Code.Models
             return new List<Sponsors>
             {
                 new Sponsors { Nombre = "MATCO", Descripcion = "", Imagen = "spn_matco.png"},
+                new Sponsors { Nombre = "Badger", Descripcion = "", Imagen = "spn_badger.png"},
             };
         }
 
@@ -56,8 +57,6 @@ namespace IndustryApp.Code.Models
         {
             return new List<Sponsors>
             {
-                new Sponsors {Nombre = "Kafco de México", Descripcion = "", Imagen = "spn_kafko.png"},
-                new Sponsors {Nombre = "Machine Tools Supply", Descripcion = "", Imagen = "spn_mts.png"},
                 new Sponsors {Nombre = "Datatechnic", Descripcion = "", Imagen = "spn_datatechnic.png"},
                 new Sponsors {Nombre = "Modular", Descripcion = "", Imagen = "spn_modular.png"},
             };
