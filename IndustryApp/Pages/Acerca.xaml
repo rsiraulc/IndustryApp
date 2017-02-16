@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="http://xamarin.com/schemas/2014/forms"
+             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp"
+             x:Class="IndustryApp.Pages.Acerca" Title="Acerca" BackgroundColor="#E2E2E2" Padding="0">
+  <forms:TabbedPage.Children>
+    <pages:Acerca_BajaMak/>
+    <pages:Acerca_Contactanos/>
+    <pages:Acerca_RSI />
+  </forms:TabbedPage.Children>
+</TabbedPage>

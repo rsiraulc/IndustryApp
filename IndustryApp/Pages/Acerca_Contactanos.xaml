@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Acerca_Contactanos" Title="Contáctanos">
+  <StackLayout  x:Name="stack" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Orientation="Vertical" Margin="15">
+    <Label Text="Contáctanos" FontSize="30" FontAttributes="Bold" TextColor="#023F5E"/>
+    <Label x:Name="lblDescripcion3" FontSize="20"  TextColor="#313A49"/>
+    <Label x:Name="lblDescripcion4" FontSize="20"  TextColor="#313A49"/>
+    <Label x:Name="lblDescripcion5" FontSize="20"  TextColor="#313A49"/>
+  </StackLayout>
+</ContentPage>

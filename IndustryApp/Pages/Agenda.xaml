@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Agenda" Title="Agenda">
+  <StackLayout>
+    <ListView x:Name="lstAgenda" RowHeight="100" ItemSelected="lvEventos_OnItemSelected">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,10,10" Padding="20, 10, 5, 10">
+              <Label x:Name="lblNombre" FontSize="17" Text="{Binding NombreEvento}" TextColor="Black" Margin="-4" />
+              <StackLayout Orientation="Vertical">
+                <Label x:Name="lblConferencista" FontSize="13" Text="{Binding NombreConferencista} " TextColor="Gray" Margin="-4" />
+                <Label x:Name="lblFecha" FontSize="13" Text="{Binding Fecha} " TextColor="Gray" Margin="-4" />
+                <Label x:Name="lblLugar" FontSize="13" Text=" {Binding Lugar}" TextColor="Gray" Margin="-4" />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

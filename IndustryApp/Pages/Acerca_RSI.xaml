@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Acerca_RSI" Title="RSI México">
+  <StackLayout x:Name="stack"  VerticalOptions="StartAndExpand" HorizontalOptions="Center" Orientation="Vertical" Margin="15">
+    <Label Text="¿Quienes somos?" FontSize="30" FontAttributes="Bold" TextColor="#023F5E"/>
+    <Label x:Name="lblDescripcion" FontSize="15" TextColor="#313A49"/>
+    <Label x:Name="lblDescripcion2" FontSize="15" TextColor="#313A49"/>
+    <ListView x:Name="lvAplicaciones" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected" RowHeight="40" Margin="0, 5,0,0">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Label Text="{Binding Descripcion}" FontSize="15" TextColor="#313A49"></Label>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

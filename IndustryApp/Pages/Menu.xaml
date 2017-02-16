@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Menu"
+             xmlns:local="IndustryApp.Pages"
+             xmlns:pages="clr-namespace:IndustryApp.Pages;assembly=IndustryApp" Title="Mexicali Supply 2017" MasterBehavior="Popover" Padding="0"  BackgroundColor="#E2E2E2" WidthRequest="25">
+  <MasterDetailPage.Master>
+    <ContentPage Title="IndustryApp" BackgroundColor="#E2E2E2">
+      <StackLayout Orientation="Vertical" BackgroundColor="#023F5E">
+        <ListView x:Name="lvMenu" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <Label FontSize="20" TextColor="#E2E2E2" Text="{Binding Opcion}" Margin="15,5,0,5"/>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </ContentPage>
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail >
+    <pages:Contactos/>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

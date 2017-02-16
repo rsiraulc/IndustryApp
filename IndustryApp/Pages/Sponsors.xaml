@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IndustryApp.Pages.Sponsors" BackgroundColor="#E2E2E2" Title="Sponsors BajaMak 2016">
+  <ScrollView>
+    <StackLayout Margin="10">
+
+      <Label Text="Patrocinador Platino" FontSize="20" FontAttributes="Bold" TextColor="#023F5E"/>
+      <ListView x:Name="lstSponsorsPlatino" RowHeight="90">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
+                <Image x:Name="imgLogoSponsor" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      
+      <Label Text="Patrocinadores Oro" FontSize="20" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True" />
+      <ListView x:Name="lstSponsorsOro" RowHeight="90" IsVisible="True">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
+                <Image x:Name="imgLogoSponsor" Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <Label Text="Patrocinadores Plata" FontSize="20" FontAttributes="Bold" TextColor="#023F5E" IsVisible="True"/>
+      <ListView x:Name="lstSponsorsPlata" RowHeight="90" HeightRequest="380" IsVisible="True">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="10,0,0,10">
+                <Image x:Name="imgLogoSponsor"  Source="{Binding Imagen}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10"></Image>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

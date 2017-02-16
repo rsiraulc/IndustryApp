@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="IndustryApp.Pages.EventoDetalle"
+             Title="IndustryApp" BackgroundColor="#E2E2E2">
+  <StackLayout x:Name="stack" Orientation="Vertical"  Margin="15">
+    <Image x:Name="imgLogo" HorizontalOptions="Center"/>
+    <Label x:Name="lblFecha" TextColor="#0080FF" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+    <Label  x:Name="lblURL" TextColor="#0080FF"  FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+    <Label x:Name="lblDescripcion" TextColor="#313A49" LineBreakMode="WordWrap"/>
+    <Label x:Name="lblDescripcion2" TextColor="#313A49"  LineBreakMode="WordWrap" />
+    <googleMaps:Map x:Name="mapa" WidthRequest="300" HeightRequest="200" IsShowingUser="True" MapType="Hybrid" Margin="0, 15, 0 ,10" />
+  </StackLayout>
+</ContentPage>
